@@ -1,11 +1,9 @@
-<?php
-    $user = 'root';
-    $pass = '123456';
-    $link = oci_connect($user, $pass, 'http://localhost/Oracle-Thematic/');
-    if (!$link)
-    {
-        $error = oci_error();
-        echo $error['message'];
-        exit();
-    }
+<?php 
+	$conn=oci_connect("system","Iamonmyway1999","localhost/orcl");
+	If (!$conn)
+		echo 'Failed to connect to Oracle';
+	else 
+		echo 'Succesfully connected with Oracle DB';
+
+oci_close($conn);
 ?>

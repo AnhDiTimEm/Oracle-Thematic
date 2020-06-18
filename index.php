@@ -12,6 +12,6 @@
         header('Location: ?page=' . $newval);
     }
 
-    loadHome:
-    require_once SITE_ROOT."/View/home.php"; 
+    // loadHome:
+    // require_once SITE_ROOT."/View/home.php"; 
 ?>
