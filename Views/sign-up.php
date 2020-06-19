@@ -12,6 +12,19 @@
 		<link href="./asset/css/swipe.min.css" type="text/css" rel="stylesheet">
 		<!-- Favicon -->
 		<link href="./asset/img/favicon.png" type="image/png" rel="icon">
+		<style>
+/* Chrome, Safari, Edge, Opera */
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+		}
+
+		/* Firefox */
+		input[type=number] {
+		-moz-appearance: textfield;
+}
+</style>
 	</head>
 	<body class="start">
 		<main>
@@ -35,22 +48,22 @@
 										</button>
 									</div>
 									<p>or use your email for registration:</p>
-									<form class="signup">
+									<form class="signup" action="?signup=1" method="POST">
 										<div class="form-parent">
 											<div class="form-group">
-												<input type="text" id="inputName" class="form-control" placeholder="Username" required>
-												<button class="btn icon"><i class="material-icons">person_outline</i></button>
-											</div>
-											<div class="form-group">
-												<input type="email" id="inputEmail" class="form-control" placeholder="Email Address" required>
-												<button class="btn icon"><i class="material-icons">mail_outline</i></button>
+												<input type="number" name="inputPhone" id="inputPhone" class="form-control" placeholder="Your Phone" required>
+												<button class="btn icon"><i class="material-icons">phone</i></button>
 											</div>
 										</div>
 										<div class="form-group">
-											<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+											<input type="password" name="inputPassword"id="inputPassword" class="form-control" placeholder="Password" required>
 											<button class="btn icon"><i class="material-icons">lock_outline</i></button>
 										</div>
-										<button type="submit" class="btn button" formaction="index-2.html">Sign Up</button>
+										<div class="form-group">
+											<input type="password" id="reinputPassword" class="form-control" placeholder="Confirm Password" required>
+											<button class="btn icon"><i class="material-icons">lock_outline</i></button>
+										</div>
+										<button type="submit" class="btn button" >Sign Up</button> <!--formaction="?signup"-->
 										<div class="callout">
 											<span>Already a member? <a href="http://localhost/Oracle-Thematic">Sign In</a></span>
 										</div>

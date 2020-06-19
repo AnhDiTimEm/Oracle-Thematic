@@ -22,6 +22,7 @@
 	public function GetAllUserr()
 	{
 		$result = $this->runQuery("SELECT *	FROM Userr");
+		return $result;
 		$userList = array();
 		while ($row = $result->fetch_assoc())
 		{
@@ -39,6 +40,25 @@
 		$result->free();
 
 		return $userList;
+	}
+	public function GetUserByPhone($phone){
+		$result = $this->runQuery("Select * from Userr Where phone='{$phone}'");
+		if (!$result) 
+		{
+			//$result = "f";
+			return $result;
+		}
+
+		$row = $result->fetch_assoc();
+		return new Userr(
+			$row['phone'],
+			$row['password'],
+			$row['email'],
+			$row['name'],
+			$row['status'],
+			$row['timeoff']
+		);
+
 	}
 }
 
