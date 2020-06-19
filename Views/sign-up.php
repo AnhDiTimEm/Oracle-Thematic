@@ -7,11 +7,11 @@
 		<meta name="description" content="#">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Bootstrap core CSS -->
-		<link href="dist/css/lib/bootstrap.min.css" type="text/css" rel="stylesheet">
+		<link href="./asset/css/lib/bootstrap.min.css" type="text/css" rel="stylesheet">
 		<!-- Swipe core CSS -->
-		<link href="dist/css/swipe.min.css" type="text/css" rel="stylesheet">
+		<link href="./asset/css/swipe.min.css" type="text/css" rel="stylesheet">
 		<!-- Favicon -->
-		<link href="dist/img/favicon.png" type="image/png" rel="icon">
+		<link href="./asset/img/favicon.png" type="image/png" rel="icon">
 	</head>
 	<body class="start">
 		<main>
@@ -68,7 +68,7 @@
 							<div class="preference">
 								<h2>Welcome Back!</h2>
 								<p>To keep connected with your friends please login with your personal info.</p>
-								<a href="sign-in.html" class="btn button">Sign In</a>
+								<a href="?signin" class="btn button">Sign In</a>
 							</div>
 						</div>
 					</div>
@@ -79,10 +79,10 @@
 		<!-- Bootstrap core JavaScript
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="dist/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script>window.jQuery || document.write('<script src="dist/js/vendor/jquery-slim.min.js"><\/script>')</script>
-		<script src="dist/js/vendor/popper.min.js"></script>
-		<script src="dist/js/bootstrap.min.js"></script>
+		<script src="./asset/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script>window.jQuery || document.write('<script src="./asset/js/vendor/jquery-slim.min.js"><\/script>')</script>
+		<script src="./asset/js/vendor/popper.min.js"></script>
+		<script src="./asset/js/bootstrap.min.js"></script>
 	</body>
 
 

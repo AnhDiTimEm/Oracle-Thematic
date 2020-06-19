@@ -62,7 +62,7 @@
 							<div class="preference">
 								<h2>Hello, Friend!</h2>
 								<p>Enter your personal details and start your journey with Swipe today.</p>
-								<a href="sign-up.html" class="btn button">Sign Up</a>
+								<a href="?signup" class="btn button">Sign Up</a>
 							</div>
 						</div>
 					</div>
@@ -74,7 +74,7 @@
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="./asset/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script>window.jQuery || document.write('<script src="/dist/js/vendor/jquery-slim.min.js"><\/script>')</script>
+		<script>window.jQuery || document.write('<script src="./asset/js/vendor/jquery-slim.min.js"><\/script>')</script>
 		<script src="./asset/js/vendor/popper.min.js"></script>
 		<script src="./asset/js/bootstrap.min.js"></script>
 	</body>
