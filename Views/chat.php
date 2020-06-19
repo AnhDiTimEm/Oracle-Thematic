@@ -787,7 +787,7 @@
 											<!-- End of Privacy & Safety -->
 											<!-- Start of Logout -->
 											<div class="category">
-												<a href="sign-in.html" class="title collapsed">
+												<a href="/?signin" class="title collapsed">
 													<i class="material-icons md-30 online">power_settings_new</i>
 													<div class="data">
 														<h5>Power Off</h5>
@@ -1239,7 +1239,7 @@
 		<!-- Bootstrap/Swipe core JavaScript
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="./asset/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<!-- <script src="./asset/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
 		<script>window.jQuery || document.write('<script src="./asset/js/vendor/jquery-slim.min.js"><\/script>')</script>
 		<script src="./asset/js/vendor/popper.min.js"></script>
 		<script src="./asset/js/swipe.min.js"></script>
@@ -1247,6 +1247,10 @@
 		<script>
 			function scrollToBottom(el) { el.scrollTop = el.scrollHeight; }
 			scrollToBottom(document.getElementById('content'));
+			//Logout Function
+				function visitPage(){window.location="?signin"}
+				$(".menu a i").on("click",function(){$(".menu a i").removeClass("active"),$(this).addClass("active")}),$("#contact, #recipient").click(function(){$(this).remove()}),$(function(){$('[data-toggle="tooltip"]').tooltip()}),$(document).ready(function(){$(".filterMembers").not(".all").hide("3000"),$(".filterMembers").not(".all").hide("3000"),$(".filterMembersBtn").click(function(){var t=$(this).attr("data-filter");$(".filterMembers").not("."+t).hide("3000"),$(".filterMembers").filter("."+t).show("3000")})}),$(document).ready(function(){$(".filterDiscussions").not(".all").hide("3000"),$(".filterDiscussions").not(".all").hide("3000"),$(".filterDiscussionsBtn").click(function(){var t=$(this).attr("data-filter");$(".filterDiscussions").not("."+t).hide("3000"),$(".filterDiscussions").filter("."+t).show("3000")})}),$(document).ready(function(){$(".filterNotifications").not(".all").hide("3000"),$(".filterNotifications").not(".all").hide("3000"),$(".filterNotificationsBtn").click(function(){var t=$(this).attr("data-filter");$(".filterNotifications").not("."+t).hide("3000"),$(".filterNotifications").filter("."+t).show("3000")})}),$(document).ready(function(){$("#people").on("keyup",function(){var t=$(this).val().toLowerCase();$("#contacts a").filter(function(){$(this).toggle($(this).text().toLowerCase().indexOf(t)>-1)})})}),$(document).ready(function(){$("#conversations").on("keyup",function(){var t=$(this).val().toLowerCase();$("#chats a").filter(function(){$(this).toggle($(this).text().toLowerCase().indexOf(t)>-1)})})}),$(document).ready(function(){$("#notice").on("keyup",function(){var t=$(this).val().toLowerCase();$("#alerts a").filter(function(){$(this).toggle($(this).text().toLowerCase().indexOf(t)>-1)})})}),$(document).ready(function(){clicked=!0,$(".mode").click(function(){clicked?($("head").append('<link href="dist/css/dark.min.css" id="dark" type="text/css" rel="stylesheet">'),clicked=!1):($("#dark").remove(),clicked=!0)})}),$(".back").click(function(){$("#call"+$(this).attr("name")).hide(),$("#chat"+$(this).attr("name")).removeAttr("style")}),$(".connect").click(function()
+				{$("#chat"+$(this).attr("name")).hide(),$("#call"+$(this).attr("name")).show()});
 		</script>
 	</body>
 
