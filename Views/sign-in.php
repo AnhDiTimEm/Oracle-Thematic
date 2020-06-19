@@ -37,8 +37,8 @@
 									<p>or use your email account:</p>
 									<form>
 										<div class="form-group">
-											<input type="email" id="inputEmail" class="form-control" placeholder="Email Address" required>
-											<button class="btn icon"><i class="material-icons">mail_outline</i></button>
+											<input type="number" id="inputPhone" class="form-control" placeholder="Your Phone" required>
+											<button class="btn icon"><i class="material-icons">phone</i></button>
 										</div>
 										<div class="form-group">
 											<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
