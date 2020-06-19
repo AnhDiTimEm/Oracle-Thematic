@@ -4,7 +4,7 @@
         if ($_GET['chatpage'] == '1') require_once SITE_ROOT."/Controllers/ChatController.php";
         else require_once SITE_ROOT."/Controllers/ChatController_2.php";
     }
-    if (isset($_GET['signup'])){
+    else if(isset($_GET['signup'])){
         require_once SITE_ROOT."/Controllers/SignupController.php";
     }
     else if (isset($_GET['signin'])){
