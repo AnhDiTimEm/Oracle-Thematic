@@ -9,7 +9,7 @@
 		<!-- Bootstrap core CSS -->
 		<link href="./asset/css/lib/bootstrap.min.css" type="text/css" rel="stylesheet">
 		<!-- Swipe core CSS -->
-		<link href=./asset/css/swipe.min.css" type="text/css" rel="stylesheet">
+		<link href="./asset/css/swipe.min.css" type="text/css" rel="stylesheet">
 		<!-- Favicon -->
 		<link href="./asset/img/favicon.png" type="image/png" rel="icon">
 	</head>
