@@ -35,15 +35,15 @@
             <!-- End of Notifications Settings -->
 
             <!-- Start of Connections -->
-            <?php require_once SITE_ROOT."/Views/layout/sidebar/settings/connections.php"; ?>
+            <!-- <?php require_once SITE_ROOT."/Views/layout/sidebar/settings/connections.php"; ?> -->
             <!-- End of Connections -->
 
             <!-- Start of Appearance Settings -->
-            <?php require_once SITE_ROOT."/Views/layout/sidebar/settings/appearance-settings.php"; ?>
+            <!-- <?php require_once SITE_ROOT."/Views/layout/sidebar/settings/appearance-settings.php"; ?> -->
             <!-- End of Appearance Settings -->
 
             <!-- Start of Language -->
-            <?php require_once SITE_ROOT."/Views/layout/sidebar/settings/language.php"; ?>
+            <!-- <?php require_once SITE_ROOT."/Views/layout/sidebar/settings/language.php"; ?> -->
             <!-- End of Language -->
 
             <!-- Start of Privacy & Safety -->

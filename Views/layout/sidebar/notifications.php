@@ -13,7 +13,7 @@
     <div class="notifications">
         <h1>Notifications</h1>
         <div class="list-group" id="alerts" role="tablist">
-            <a href="#" class="filterNotifications all latest notification" data-toggle="list">
+            <a href="#list-request" class="filterNotifications all latest notification" data-toggle="list">
                 <img class="avatar-md" src="./asset/img/avatars/avatar-female-1.jpg" data-toggle="tooltip" data-placement="top" title="Janette" alt="avatar">
                 <div class="status">
                     <i class="material-icons online">fiber_manual_record</i>
