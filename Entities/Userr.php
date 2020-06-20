@@ -10,6 +10,15 @@ class Userr
         private $status;
         private $timeoff;
 
+        // public function _construct($Phone){
+        //     $this->phone=$Phone;
+        //     $this->password = null;
+        //     $this->email = null;
+        //     $this->name = null;
+        //     $this->avatar = null;
+        //     $this->status = null;
+        //     $this->timeoff = null;
+        // }
 		public function __construct($Phone, $Password, $Email, $Name, $Avatar, $Status, $Timeoff)
 		{
 			$this->phone = $Phone;
@@ -20,7 +29,6 @@ class Userr
             $this->status = $Status;
             $this->timeoff = $Timeoff;
 		}
-
 		public function getPhone()
 		{
 			return $this->phone;

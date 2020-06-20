@@ -10,9 +10,9 @@
 	}
 	public function InsertUser($user)
 	{
-		return $this->runQuery(
-			"INSERT INTO Userr(phone, password) 
-			VALUE (
+		return $this->InsertQuery(
+			"INSERT INTO USERR(PHONE, PASSWORD) 
+			VALUES (
 				'{$user->getPhone()}',
 				'{$user->getPassword()}'
 			)"
@@ -42,21 +42,22 @@
 		return $userList;
 	}
 	public function GetUserByPhone($phone){
-		$result = $this->runQuery("Select * from Userr Where phone='{$phone}'");
+		$result = $this->RunQuery("Select * from Userr Where phone='{$phone}'");
 		if (!$result) 
 		{
 			//$result = "f";
 			return $result;
 		}
 
-		$row = $result->fetch_assoc();
+		$row = oci_fetch_array($result);
 		return new Userr(
-			$row['phone'],
-			$row['password'],
-			$row['email'],
-			$row['name'],
-			$row['status'],
-			$row['timeoff']
+			$row['PHONE'],
+			$row['PASSWORD'],
+			$row['EMAIL'],
+			$row['NAME'],
+			$row['AVATAR'],
+			$row['STATUS'],
+			$row['TIMEOFF']
 		);
 
 	}
