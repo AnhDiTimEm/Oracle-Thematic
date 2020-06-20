@@ -14,19 +14,20 @@
 
 			// oci_close($this->conn);
 		}
-		 function InsertQuery(string $sql) {
+		//  function InsertQuery(string $sql) {
 
-			 $conn = oci_connect("hr","hr","localhost/orcl");
-			 if(!$conn){
-				 echo("connect Fail");
-			 }
-			 else{
-				 echo("connect success");
-			 }
-			$stid = oci_parse($conn,$sql);
-			$result = oci_execute($stid);
-			return $result;
-		}
+		// 	 $conn = oci_connect("hr","hr","localhost/orcl");
+		// 	 if(!$conn){
+		// 		 echo("connect Fail");
+		// 	 }
+		// 	 else{
+		// 		 echo("connect success");
+		// 	 }
+		// 	$stid = oci_parse($conn,$sql);
+		// 	$result = oci_execute($stid);
+		// 	oci_close($conn);
+		// 	return $result;
+		// }
 		function RunQuery(string $sql){
 			$conn = oci_connect("hr","hr","localhost/orcl");
 			if(!$conn){
@@ -36,7 +37,16 @@
 				echo("connect success");
 			}
 		   $stid = oci_parse($conn,$sql);
+		   if(!$stid){
+			   $err = oci_error();
+			   return 0;
+		   }
 		   $result = oci_execute($stid);
+		   if(!$result){
+				$err = oci_error();
+			   return 0;
+		   }
+		   oci_close($conn);
 		   return $stid;
 		}
 	  }

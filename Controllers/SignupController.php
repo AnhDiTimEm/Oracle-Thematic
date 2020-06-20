@@ -9,7 +9,7 @@
             $userDao = new UserDao();
             $user = new Userr($phone,$pass);
             $res = $userDao->InsertUser($user);
-            if($res==1){
+            if($res!=null){
                 echo("DangKy Ok");
                 require_once SITE_ROOT."/Views/sign-in.php";
             }

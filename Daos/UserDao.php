@@ -10,13 +10,18 @@
 	}
 	public function InsertUser($user)
 	{
-		return $this->InsertQuery(
+		return $this->RunQuery(
 			"INSERT INTO USERR(PHONE, PASSWORD) 
 			VALUES (
 				'{$user->getPhone()}',
 				'{$user->getPassword()}'
 			)"
 		);
+		// $row = oci_fetch_array($result);
+		// if($row==false){
+		// 	return 0;
+		// }
+		// else return 1;
 	}
 
 	public function GetAllUserr()
