@@ -56,14 +56,15 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<input type="password" name="inputPassword"id="inputPassword" class="form-control" placeholder="Password" required>
+											<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
 											<button class="btn icon"><i class="material-icons">lock_outline</i></button>
 										</div>
 										<div class="form-group">
-											<input type="password" id="reinputPassword" class="form-control" placeholder="Confirm Password" required>
+											<input type="password" name="reinputPassword" id="reinputPassword" class="form-control" placeholder="Confirm Password" onchange="CheckPassword()" onkeydown="CheckPassword()" required>
 											<button class="btn icon"><i class="material-icons">lock_outline</i></button>
 										</div>
 										<button type="submit" class="btn button" >Sign Up</button> <!--formaction="?signup"-->
+										<p id="SignupNotification"></p>
 										<div class="callout">
 											<span>Already a member? <a href="http://localhost/Oracle-Thematic">Sign In</a></span>
 										</div>
@@ -96,6 +97,7 @@
 		<script>window.jQuery || document.write('<script src="./asset/js/vendor/jquery-slim.min.js"><\/script>')</script>
 		<script src="./asset/js/vendor/popper.min.js"></script>
 		<script src="./asset/js/bootstrap.min.js"></script>
+		<script src="./script.js"></script>
 	</body>
 
 

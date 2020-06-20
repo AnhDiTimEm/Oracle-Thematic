@@ -77,6 +77,7 @@
 		<script>window.jQuery || document.write('<script src="./asset/js/vendor/jquery-slim.min.js"><\/script>')</script>
 		<script src="./asset/js/vendor/popper.min.js"></script>
 		<script src="./asset/js/bootstrap.min.js"></script>
+		<script src="./script.js"></script>
 	</body>
 
 </html>
