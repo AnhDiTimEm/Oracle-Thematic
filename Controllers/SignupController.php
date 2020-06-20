@@ -7,7 +7,7 @@
             require_once SITE_ROOT."/Daos/UserDao.php";
             require_once SITE_ROOT."/Entities/Userr.php";
             $userDao = new UserDao();
-            $user = new Userr($phone,$pass,null,null,null,null,null);
+            $user = new Userr($phone,$pass);
             $res = $userDao->InsertUser($user);
             if($res==1){
                 echo("DangKy Ok");
