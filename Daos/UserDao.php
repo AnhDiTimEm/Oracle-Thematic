@@ -8,6 +8,7 @@
 	{
 		parent::__construct();
 	}
+
 	public function InsertUser($user)
 	{
 		return $this->RunQuery(
@@ -26,28 +27,31 @@
 
 	public function GetAllUserr()
 	{
-		$result = $this->runQuery("SELECT *	FROM Userr");
-		return $result;
+		$result = $this->RunQuery("SELECT *	FROM Userr");
 		$userList = array();
-		while ($row = $result->fetch_assoc())
+		while ($row = oci_fetch_assoc($result))
 		{
 			$userr = new Userr(
-				$row['phone'],
-				$row['password'],
-				$row['email'],
-				$row['avatar'],
-				$row['status'],
-				$row['timeoff'],
+				$row['PHONE'],
+				$row['PASSWORD'],
+				$row['EMAIL'],
+				$row['NAME'],
+				$row['AVATAR'],
+				$row['STATUS'],
+				$row['TIMEOFF']
 
 			);
 			array_push($userList, $userr);
 		}
-		$result->free();
+		oci_free_statement($result);
 
 		return $userList;
 	}
+
 	public function GetUserByPhone($phone){
-		$result = $this->RunQuery("Select * from Userr Where phone='{$phone}'");
+
+		$result = $this->RunQuery("SELECT * FROM Userr WHERE phone='{$phone}'");
+
 		if (!$result) 
 		{
 			//$result = "f";

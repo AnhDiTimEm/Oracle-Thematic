@@ -51,20 +51,20 @@
 									<form class="signup" action="?signup=1" method="POST">
 										<div class="form-parent">
 											<div class="form-group">
-												<input type="number" name="inputPhone" id="inputPhone" class="form-control" placeholder="Your Phone" required>
+												<input type="number" name="inputPhone" id="inputPhone" class="form-control" placeholder="Your Phone" onchange="CheckInformation()" onkeydown="CheckInformation()" required>
 												<button class="btn icon"><i class="material-icons">phone</i></button>
 											</div>
 										</div>
 										<div class="form-group">
-											<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
+											<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" onchange="CheckInformation()" onkeydown="CheckInformation()" required>
 											<button class="btn icon"><i class="material-icons">lock_outline</i></button>
 										</div>
 										<div class="form-group">
-											<input type="password" name="reinputPassword" id="reinputPassword" class="form-control" placeholder="Confirm Password" onchange="CheckPassword()" onkeydown="CheckPassword()" required>
+											<input type="password" name="reinputPassword" id="reinputPassword" class="form-control" placeholder="Confirm Password" onchange="CheckInformation()" onkeydown="CheckInformation()" required>
 											<button class="btn icon"><i class="material-icons">lock_outline</i></button>
 										</div>
-										<button type="submit" class="btn button" >Sign Up</button> <!--formaction="?signup"-->
-										<p id="SignupNotification"></p>
+										<button id="sign-up" type="submit" class="btn button" disabled>Sign Up</button> <!--formaction="?signup"-->
+										<p id="SignupNotification" style="color: red;"></p>
 										<div class="callout">
 											<span>Already a member? <a href="http://localhost/Oracle-Thematic">Sign In</a></span>
 										</div>

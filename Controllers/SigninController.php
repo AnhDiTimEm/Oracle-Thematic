@@ -5,21 +5,36 @@
             $phone = $_POST['inputPhone'];
             $pass = $_POST['inputPassword'];
             $dao = new UserDao();
-            $user = $dao->GetUserByPhone($phone);
+            $listt = $dao->GetAllUserr();
+
+            $user = new Userr(null, null);
+            foreach ($listt as $userr)
+            {
+                //echo $userr;
+                if ($userr->getPhone() === $phone)
+                {
+                    $user = $dao->GetUserByPhone($phone);
+                }
+            }
+
             //echo $user->getPhone()." ".$user->getPassword();
 
-            if($user!=null){
-                if($user->getPhone() == $phone && $user->getPassword()==$pass){
+            if($user->getPhone() != null){
+                if($user->getPhone() == $phone && $user->getPassword() == $pass){
                     //require_once SITE_ROOT."/Controllers/chatController.php";
                     $_SESSION['user'] = $phone;
                     //echo $_SESSION['user'];
                     //require_once SITE_ROOT."/Controllers/ChatController.php";
                     header("Location:?chatpage");
                 }
-                else{
-                    header("Location:?signin");
-                    echo "Sai tai khoan mat khau";
+                else
+                {
+                    echo "Mật khẩu không đúng! <a href='javascript: history.go(-1)'>Trở lại</a>";
                 }
+            }
+            else
+            {
+                echo "Số điện thoại không tồn tại! <a href='javascript: history.go(-1)'>Trở lại</a>";
             }
 
         }

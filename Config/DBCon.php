@@ -28,6 +28,7 @@
 		// 	oci_close($conn);
 		// 	return $result;
 		// }
+
 		function RunQuery(string $sql){
 			$conn = oci_connect("hr","hr","localhost/orcl");
 			if (!$conn) {
@@ -49,6 +50,6 @@
 		   oci_close($conn);
 		   return $stid;
 		}
-	  }
+	}
 	
 ?>
