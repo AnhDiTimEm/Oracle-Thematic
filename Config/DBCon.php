@@ -30,21 +30,21 @@
 		// }
 		function RunQuery(string $sql){
 			$conn = oci_connect("hr","hr","localhost/orcl");
-			if(!$conn){
-				echo("connect Fail");
-			}
-			else{
-				echo("connect success");
+			if (!$conn) {
+				$m = oci_error();
+				throw new \Exception('Cannot connect to database: ' . $m['message']);
 			}
 		   $stid = oci_parse($conn,$sql);
+
 		   if(!$stid){
-			   $err = oci_error();
-			   return 0;
+				$e = oci_error($conn);  // For oci_parse errors pass the connection handle
+				header("Location:./Views/error.php");
 		   }
+
 		   $result = oci_execute($stid);
 		   if(!$result){
-				$err = oci_error();
-			   return 0;
+				$e = oci_error($conn);  // For oci_parse errors pass the connection handle
+				header("Location:./Views/error.php");
 		   }
 		   oci_close($conn);
 		   return $stid;
