@@ -17,7 +17,6 @@ class Read_Mess
 		{
 			return $this->id_mess;
 		}
-
 		public function setId_mess($Id_mess)
 		{
 			$this->id_mess = $Id_mess;
