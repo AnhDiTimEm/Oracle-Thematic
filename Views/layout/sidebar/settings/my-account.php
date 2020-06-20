@@ -20,7 +20,7 @@
                 <p>For best results, use an image at least 256px by 256px in either .jpg or .png format!</p>
             </div>
             <form>
-                <div class="parent">
+                <!-- <div class="parent">
                     <div class="field">
                         <label for="firstName">First name <span>*</span></label>
                         <input type="text" class="form-control" id="firstName" placeholder="First name" value="Michael" required>
@@ -29,7 +29,11 @@
                         <label for="lastName">Last name <span>*</span></label>
                         <input type="text" class="form-control" id="lastName" placeholder="Last name" value="Knudsen" required>
                     </div>
-                </div>
+                </div> -->
+                <div class="field">
+                        <label for="lastName">Your Name<span>*</span></label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Last name" value="Knudsen" required>
+                    </div>
                 <div class="field">
                     <label for="email">Email <span>*</span></label>
                     <input type="email" class="form-control" id="email" placeholder="Enter your email address" value="michael@gmail.com" required>
@@ -37,10 +41,6 @@
                 <div class="field">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" placeholder="Enter a new password" value="password" required>
-                </div>
-                <div class="field">
-                    <label for="location">Location</label>
-                    <input type="text" class="form-control" id="location" placeholder="Enter your location" value="Helena, Montana" required>
                 </div>
                 <button class="btn btn-link w-100">Delete Account</button>
                 <button type="submit" class="btn button w-100">Apply</button>
