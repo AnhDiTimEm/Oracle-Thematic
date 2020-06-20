@@ -17,8 +17,8 @@
                     header("Location:?chatpage");
                 }
                 else{
-                    header("Location:?signin");
-                    echo "Sai tai khoan mat khau";
+                    echo "Tài khoản hoặc mật khẩu không đúng! <a href='javascript: history.go(-1)'>Trở lại</a>";
+                    exit;
                 }
             }
 

@@ -56,11 +56,11 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<input type="password" name="inputPassword"id="inputPassword" class="form-control" placeholder="Password" required>
+											<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
 											<button class="btn icon"><i class="material-icons">lock_outline</i></button>
 										</div>
 										<div class="form-group">
-											<input type="password" id="reinputPassword" class="form-control" placeholder="Confirm Password" required>
+											<input type="password" name="reinputPassword" id="reinputPassword" class="form-control" placeholder="Confirm Password" required>
 											<button class="btn icon"><i class="material-icons">lock_outline</i></button>
 										</div>
 										<button type="submit" class="btn button" >Sign Up</button> <!--formaction="?signup"-->
