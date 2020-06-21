@@ -12,6 +12,7 @@
 		<link href="./asset/css/swipe.min.css" type="text/css" rel="stylesheet">
 		<!-- Favicon -->
 		<link href="./asset/img/favicon.png" type="image/png" rel="icon">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 		<style>
 /* Chrome, Safari, Edge, Opera */
 		input::-webkit-outer-spin-button,
@@ -98,6 +99,9 @@
 		<script src="./asset/js/vendor/popper.min.js"></script>
 		<script src="./asset/js/bootstrap.min.js"></script>
 		<script src="./script.js"></script>
+		<script scr="./asset/js/sweetalert.js"></script>
+		<script>
+		</script>
 	</body>
 
 

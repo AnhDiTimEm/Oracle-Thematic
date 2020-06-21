@@ -8,17 +8,17 @@
             <div class="content">
                 <form>
                     <div class="form-group">
-                        <label for="user">Username:</label>
+                        <label for="user">Friend's Phone:</label>
                         <input type="text" class="form-control" id="user" placeholder="Add recipient..." required>
-                        <div class="user" id="contact">
+                        <!-- <div class="user" id="contact">
                             <img class="avatar-sm" src="./asset/img/avatars/avatar-female-5.jpg" alt="avatar">
                             <h5>Keith Morris</h5>
                             <button class="btn"><i class="material-icons">close</i></button>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="form-group">
                         <label for="welcome">Message:</label>
-                        <textarea class="text-control" id="welcome" placeholder="Send your welcome message...">Hi Keith, I'd like to add you as a contact.</textarea>
+                        <textarea class="text-control" id="welcome" placeholder="Send your welcome message...">Can we be friend ?</textarea>
                     </div>
                     <button type="submit" class="btn button w-100">Send Friend Request</button>
                 </form>

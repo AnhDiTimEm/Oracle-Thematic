@@ -87,7 +87,7 @@
 		<!-- <script src="./asset/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
 		<script>window.jQuery || document.write('<script src="./asset/js/vendor/jquery-slim.min.js"><\/script>')</script>
 		<script src="./asset/js/vendor/popper.min.js"></script>
-		<script src="./asset/js/swipe.min.js"></script>
+		<!-- <script src="./asset/js/swipe.min.js"></script> -->
 		<script src="./asset/js/bootstrap.min.js"></script>
 		<script>
 			function scrollToBottom(el) { el.scrollTop = el.scrollHeight; }
