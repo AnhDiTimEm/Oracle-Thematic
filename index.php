@@ -12,11 +12,12 @@
         require_once SITE_ROOT."/Controllers/SigninController.php";
     }
     else if(isset($_GET['signout'])){
+        $dao = new UserDao();
+        $dao->UpdateStatusUser($_SESSION['user'], 'offline');
         session_destroy();
         header("Location:?signin");
     }
     else{
         header("Location:?signin");
-        //require_once SITE_ROOT."/Views/sign-in.php";
     }
 ?>

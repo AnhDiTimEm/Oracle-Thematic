@@ -8,6 +8,7 @@
             require_once SITE_ROOT."/Entities/Userr.php";
             $userDao = new UserDao();
             $user = new Userr($phone,$pass);
+            $user->addAll($phone, $pass, 'NewEmail@gmail.com', 'New Member', './Resources/images/avatar1.jpg', 'offline', null);
             $res = $userDao->InsertUser($user);
             if($res!=null){
                 echo("DangKy Ok");

@@ -15,8 +15,8 @@
 
 	</head>
 	<body>
-	<main>	<div><?php echo $_SESSION['user'];?></div>
-	</main>
+	<!-- <main>	<div><?php echo $user->getPhone();?></div>
+	</main> -->
 		<main>
 			<div class="layout">
 				<!-- Start of Navigation -->

@@ -1,10 +1,10 @@
 <?php
 
 class Userr
-	{
+    {
         private $phone;
         private $password;
-		private $email;
+        private $email;
         private $name;
         private $avatar;
         private $status;
@@ -20,10 +20,10 @@ class Userr
             $this->timeoff = null;
         }
 
-		public function addAll($Phone, $Password, $Email, $Name, $Avatar, $Status, $Timeoff)
-		{
-			$this->phone = $Phone;
-			$this->password = $Password;
+        public function addAll($Phone, $Password, $Email, $Name, $Avatar, $Status, $Timeoff)
+        {
+            $this->phone = $Phone;
+            $this->password = $Password;
             $this->email = $Email;
             $this->name = $Name;
             $this->avatar = $Avatar;
@@ -31,34 +31,34 @@ class Userr
             $this->timeoff = $Timeoff;
         }
         
-		public function getPhone()
-		{
-			return $this->phone;
-		}
+        public function getPhone()
+        {
+            return $this->phone;
+        }
 
-		public function setPhone($Phone)
-		{
-			$this->phone = $Phone;
-		}
+        public function setPhone($Phone)
+        {
+            $this->phone = $Phone;
+        }
 
-		public function getPassword()
-		{
-			return $this->password;
-		}
+        public function getPassword()
+        {
+            return $this->password;
+        }
 
-		public function setPassword($Password)
-		{
-			$this->password = $Password;
-		}
+        public function setPassword($Password)
+        {
+            $this->password = $Password;
+        }
 
-		public function getEmail()
-		{
-			return $this->email;
-		}
+        public function getEmail()
+        {
+            return $this->email;
+        }
 
-		public function setEmail($Email)
-		{
-			$this->email = $Email;
+        public function setEmail($Email)
+        {
+            $this->email = $Email;
         }
         
         public function getName()
@@ -101,6 +101,6 @@ class Userr
             $this->timeoff = $Timeoff;
         }
 
-	}
+    }
 
 ?>
