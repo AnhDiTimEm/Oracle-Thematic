@@ -1,5 +1,6 @@
 <?php
     $dao = new UserDao();
+
     if(($_SESSION['user']) == null){
         header("Location:?signin");
     }
@@ -19,7 +20,15 @@
             header("Location:?signin");
         }
     }
-    else{
+    else if (isset($_GET['friend']))
+    {
+        if ($_GET['friend'] == 'add')
+        {
+            
+        }
+    }
+    else
+    {
         $friendDao = new FriendDao();
         $listFriend = $friendDao->GetAllFriend($_SESSION['user']);
         // foreach($listFriend as $f){

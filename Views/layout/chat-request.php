@@ -5,13 +5,13 @@
             <div class="container">
                 <div class="col-md-12">
                     <div class="inside">
-                        <a href="#"><img class="avatar-md" src="./asset/img/avatars/avatar-female-6.jpg" data-toggle="tooltip" data-placement="top" title="Louis" alt="avatar"></a>
+                        <a href="#" onclick="return false;"><img class="avatar-md" src="./asset/img/avatars/avatar-female-6.jpg" data-toggle="tooltip" data-placement="top" title="Louis" alt="avatar"></a>
                         <div class="status">
                             <i class="material-icons offline">fiber_manual_record</i>
                         </div>
                         <div class="data">
-                            <h5><a href="#">Louis Martinez</a></h5>
-                            <span>Inactive</span>
+                            <h5><a href="#" onclick="return false;">Louis Martinez</a></h5>
+                            <span>Waitting</span>
                         </div>
                         
                     </div>
@@ -22,17 +22,20 @@
             <div class="container">
                 <div class="col-md-12">
                     <div class="no-messages request">
-                        <a href="#"><img class="avatar-xl" src="./asset/img/avatars/avatar-female-6.jpg" data-toggle="tooltip" data-placement="top" title="Louis" alt="avatar"></a>
-                        <h5>Louis Martinez would like to add you as a contact. <span>Hi Keith, I'd like to add you as a contact.</span></h5>
-                        <div class="options">
-                            <button class="btn button"><i class="material-icons">check</i></button>
-                            <button class="btn button"><i class="material-icons">close</i></button>
-                        </div>
+                        <a href="#" onclick="return false;"><img class="avatar-xl" src="./asset/img/avatars/avatar-female-6.jpg" data-toggle="tooltip" data-placement="top" title="Louis" alt="avatar"></a>
+                        <h5>Louis Martinez would like to add you as a contact. <span>Hi, I'd like to add you as a contact.</span></h5>
+                        <form action="?chatpage=1&friend=request" method="post">
+                            <div class="options">
+                                <button type="submit" class="btn button" name="accept"><i class="material-icons">check</i></button>
+                                <button type="submit" class="btn button" name="cancel"><i class="material-icons">close</i></button>
+                                <button type="submit" class="btn button" name="seen" style="background-color: orange;"><i class="material-icons">visibility_off</i></button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <!-- <div class="container">
             <div class="col-md-12">
                 <div class="bottom">
                     <form class="position-relative w-100">
@@ -46,7 +49,7 @@
                     </label> 
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <!-- End of Chat -->
 </div>

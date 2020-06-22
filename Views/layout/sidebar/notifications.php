@@ -13,96 +13,51 @@
     <div class="notifications">
         <h1>Notifications</h1>
         <div class="list-group" id="alerts" role="tablist">
+
             <a href="#list-request" class="filterNotifications all latest notification" data-toggle="list">
                 <img class="avatar-md" src="./asset/img/avatars/avatar-female-1.jpg" data-toggle="tooltip" data-placement="top" title="Janette" alt="avatar">
                 <div class="status">
                     <i class="material-icons online">fiber_manual_record</i>
                 </div>
                 <div class="data">
-                    <p>Janette has accepted your friend request on Swipe.</p>
-                    <span>Oct 17, 2018</span>
+                    <p>Michael, you have a new friend suggestion today.</p>
+                    <span><?php echo(date("F d, Y h:i:s", time())); ?></span>
                 </div>
             </a>
-            <a href="#" class="filterNotifications all latest notification" data-toggle="list">
-                <img class="avatar-md" src="./asset/img/avatars/avatar-male-1.jpg" data-toggle="tooltip" data-placement="top" title="Michael" alt="avatar">
+
+            <a href="#list-request" class="filterNotifications all latest notification" data-toggle="list">
+                <img class="avatar-md" src="./asset/img/avatars/avatar-female-1.jpg" data-toggle="tooltip" data-placement="top" title="Janette" alt="avatar">
                 <div class="status">
                     <i class="material-icons online">fiber_manual_record</i>
                 </div>
                 <div class="data">
                     <p>Michael, you have a new friend suggestion today.</p>
-                    <span>Jun 21, 2018</span>
+                    <span><?php echo(date("F d, Y h:i:s", time())); ?></span>
                 </div>
             </a>
-            <a href="#" class="filterNotifications all latest notification" data-toggle="list">
-                <img class="avatar-md" src="./asset/img/avatars/avatar-male-2.jpg" data-toggle="tooltip" data-placement="top" title="Mariette" alt="avatar">
-                <div class="status">
-                    <i class="material-icons online">fiber_manual_record</i>
-                </div>
-                <div class="data">
-                    <p>Mariette have just sent you a new message.</p>
-                    <span>Feb 15, 2018</span>
-                </div>
-            </a>
-            <a href="#" class="filterNotifications all latest notification" data-toggle="list">
-                <img class="avatar-md" src="./asset/img/avatars/avatar-female-6.jpg" data-toggle="tooltip" data-placement="top" title="Louis" alt="avatar">
-                <div class="status">
-                    <i class="material-icons online">fiber_manual_record</i>
-                </div>
-                <div class="data">
-                    <p>Louis has a birthday today. Wish her all the best.</p>
-                    <span>Mar 23, 2018</span>
-                </div>
-            </a>
-            <a href="#" class="filterNotifications all latest notification" data-toggle="list">
-                <img class="avatar-md" src="./asset/img/avatars/avatar-female-3.jpg" data-toggle="tooltip" data-placement="top" title="Janette" alt="avatar">
-                <div class="status">
-                    <i class="material-icons online">fiber_manual_record</i>
-                </div>
-                <div class="data">
-                    <p>Harmony has accepted your friend request on Swipe.</p>
-                    <span>Jan 5, 2018</span>
-                </div>
-            </a>
-            <a href="#" class="filterNotifications all oldest notification" data-toggle="list">
+            
+            <a href="#list-request" class="filterNotifications all oldest notification" data-toggle="list">
                 <img class="avatar-md" src="./asset/img/avatars/avatar-female-5.jpg" data-toggle="tooltip" data-placement="top" title="Janette" alt="avatar">
                 <div class="status">
                     <i class="material-icons offline">fiber_manual_record</i>
                 </div>
                 <div class="data">
                     <p>Keith have just sent you a new message.</p>
-                    <span>Dec 22, 2017</span>
+                    <span><?php echo(date("F d, Y h:i:s", time())); ?></span>
                 </div>
             </a>
-            <a href="#" class="filterNotifications all oldest notification" data-toggle="list">
-                <img class="avatar-md" src="./asset/img/avatars/avatar-female-2.jpg" data-toggle="tooltip" data-placement="top" title="Janette" alt="avatar">
+
+            <a href="#list-request" class="filterNotifications all oldest notification" data-toggle="list">
+                <img class="avatar-md" src="./asset/img/avatars/avatar-female-5.jpg" data-toggle="tooltip" data-placement="top" title="Janette" alt="avatar">
                 <div class="status">
                     <i class="material-icons offline">fiber_manual_record</i>
                 </div>
                 <div class="data">
-                    <p>Michael, you have a new friend suggestion today.</p>
-                    <span>Nov 29, 2017</span>
+                    <p>Keith have just sent you a new message.</p>
+                    <span><?php echo(date("F d, Y h:i:s", time())); ?></span>
                 </div>
             </a>
-            <a href="#" class="filterNotifications all oldest notification" data-toggle="list">
-                <img class="avatar-md" src="./asset/img/avatars/avatar-male-3.jpg" data-toggle="tooltip" data-placement="top" title="Janette" alt="avatar">
-                <div class="status">
-                    <i class="material-icons offline">fiber_manual_record</i>
-                </div>
-                <div class="data">
-                    <p>Ryan have just sent you a new message.</p>
-                    <span>Sep 31, 2017</span>
-                </div>
-            </a>
-            <a href="#" class="filterNotifications all oldest notification" data-toggle="list">
-                <img class="avatar-md" src="./asset/img/avatars/avatar-male-4.jpg" data-toggle="tooltip" data-placement="top" title="Janette" alt="avatar">
-                <div class="status">
-                    <i class="material-icons offline">fiber_manual_record</i>
-                </div>
-                <div class="data">
-                    <p>Mildred has a birthday today. Wish him all the best.</p>
-                    <span>Jul 19, 2017</span>
-                </div>
-            </a>
+            
         </div>
     </div>
 </div>
