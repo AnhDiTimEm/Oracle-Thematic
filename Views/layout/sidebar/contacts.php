@@ -1,4 +1,4 @@
-<div class="tab-pane fade" id="members">
+<div class="tab-pane fade active show" id="members">
 	<div class="search">
 		<form class="form-inline position-relative">
 			<input type="search" class="form-control" id="people" placeholder="Search for people...">
