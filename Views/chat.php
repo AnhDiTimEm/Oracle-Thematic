@@ -58,16 +58,26 @@
 				<!-- Start of Create Chat -->
 				<?php require_once SITE_ROOT."/Views/layout/create-chat.php"; ?>
 				<!-- End of Create Chat -->
+				<?php require_once SITE_ROOT."/Views/layout/upload-avatar.php"; ?>
+				<!-- End of Create Chat -->
 
 				<div class="main">
 					<div class="tab-content" id="nav-tabContent">
-
+						<!--  load babble chat-->
+						<?php 
+							foreach ($allRoom as $key) 
+							{
+								require SITE_ROOT."/Views/layout/chat-active.php";
+							}
+							
+						?>
 						<!-- Start of Babble -->
 						<?php 
 							foreach ($listNotificationForRequest as $noti) 
 							{
 								require SITE_ROOT."/Views/layout/chat-request.php";
 							}
+							
 						?>
 						<!-- End of Babble -->
 
