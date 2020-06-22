@@ -8,7 +8,7 @@ if( $_SESSION['user'] != null){
     $onlineFriend = array();
     $friendDao = new FriendDao();
     $output= '<div class="list-group" id="contacts" role="tablist" name="contacts">';
-    $listFriend = $friendDao->GetAllFriend($_SESSION['user']);
+    $listFriend = $friendDao->GetAllFriendByPhone($_SESSION['user']);
 
     foreach($listFriend as $f){
         $output.= '<a href="#listempty"';
