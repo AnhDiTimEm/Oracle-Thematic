@@ -29,13 +29,13 @@
             <div class="container">
                 <div class="col-md-12">
                     <div class="no-messages request">
-                        <a href="#" onclick="return false;"><img class="avatar-xl" src="./asset/img/avatars/avatar-female-6.jpg" data-toggle="tooltip" data-placement="top" title="Louis" alt="avatar"></a>
+                        <a href="#" onclick="return false;"><img class="avatar-xl" src="<?php echo $noti->getAvatar(); ?>" data-toggle="tooltip" data-placement="top" title="Louis" alt="avatar"></a>
                         <h5><?php echo $noti->getName(); ?> would like to add you as a contact. <span>Hi, I'd like to add you as a contact.</span></h5>
                         <form action="?chatpage=1&friend=request" method="post">
                             <div class="options">
                                 <button type="submit" class="btn button" name="accept"><i class="material-icons">check</i></button>
                                 <button type="submit" class="btn button" name="cancel"><i class="material-icons">close</i></button>
-                                <button type="submit" class="btn button" name="seen" style="background-color: orange;"><i class="material-icons">visibility_off</i></button>
+                                <input type="hidden" name="phone_B" value="<?php echo $noti->getPhone(); ?>">
                             </div>
                         </form>
                     </div>

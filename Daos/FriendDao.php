@@ -69,34 +69,6 @@
             return $friendList;
         }
 
-        public function GetNotificationForSeen($phone)
-        {
-            $userDao = new UserDao();
-            $result = $this->RunQuery("SELECT PHONE_B FROM Friend Where PHONE_A = '{$phone}' AND STATUS = 'seen'");
-
-            $friendList = array();
-            
-			while ($row = oci_fetch_assoc($result))
-			{
-                $friend = $userDao->GetUSerByPhone($row['PHONE_B']);
-
-                $userr = new Userr($row['PHONE_B'],null);
-                $userr->addAll(
-					$friend->getPhone(),
-                    $friend->getPassword(),
-                    $friend->getEmail(),
-                    $friend->getName(),
-                    $friend->getAvatar(),
-                    $friend->getStatus(),
-                    $friend->getTimeoff()
-                );
-                   
-				array_push($friendList, $userr);
-			}
-			oci_free_statement($result);
-            return $friendList;
-        }
-
 		public function GetAllFriendByPhone($phone)
 		{
             $userDao = new UserDao();

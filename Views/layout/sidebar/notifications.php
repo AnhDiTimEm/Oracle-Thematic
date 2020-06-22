@@ -6,9 +6,9 @@
         </form>
     </div>
     <div class="list-group sort">
-        <button class="btn filterNotificationsBtn active show" data-toggle="list" data-filter="all">All</button>
+        <!-- <button class="btn filterNotificationsBtn active show" data-toggle="list" data-filter="all">All</button>
         <button class="btn filterNotificationsBtn" data-toggle="list" data-filter="latest">Latest</button>
-        <button class="btn filterNotificationsBtn" data-toggle="list" data-filter="oldest">Oldest</button>
+        <button class="btn filterNotificationsBtn" data-toggle="list" data-filter="oldest">Oldest</button> -->
     </div>						
     <div class="notifications">
         <h1>Notifications</h1>
@@ -21,10 +21,10 @@
             <a href="#list-request-<?php echo $noti1->getPhone(); ?>" class="filterNotifications all latest notification" data-toggle="list">
                 <img class="avatar-md" src="<?php echo $noti1->getAvatar(); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $noti1->getName(); ?>" alt="avatar">
                 <div class="status">
-                    <i class="material-icons online">fiber_manual_record</i>
+                    <i class="material-icons <?php if ($noti1->getStatus() == 'online') echo 'online'; else echo 'offline'; ?>">fiber_manual_record</i>
                 </div>
                 <div class="data">
-                    <p><?php echo $user->getName(); ?>, you have a new friend suggestion today.</p>
+                    <p><?php echo $noti1->getName(); ?> has sent you a friend request today.</p>
                     <span><?php echo(date("F d, Y h:i:s", time())); ?></span>
                 </div>
             </a>
