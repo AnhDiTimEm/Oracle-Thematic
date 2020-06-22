@@ -14,50 +14,38 @@
         <h1>Notifications</h1>
         <div class="list-group" id="alerts" role="tablist">
 
+        <?php 
+            foreach ($listNotificationForRequest as $noti1) 
+            {
+        ?>
             <a href="#list-request" class="filterNotifications all latest notification" data-toggle="list">
-                <img class="avatar-md" src="./asset/img/avatars/avatar-female-1.jpg" data-toggle="tooltip" data-placement="top" title="Janette" alt="avatar">
+                <img class="avatar-md" src="<?php echo $noti1->getAvatar(); ?>" data-toggle="tooltip" data-placement="top" title="Janette" alt="avatar">
                 <div class="status">
                     <i class="material-icons online">fiber_manual_record</i>
                 </div>
                 <div class="data">
-                    <p>Michael, you have a new friend suggestion today.</p>
+                    <p><?php echo $user->getName(); ?>, you have a new friend suggestion today.</p>
                     <span><?php echo(date("F d, Y h:i:s", time())); ?></span>
                 </div>
             </a>
-
-            <a href="#list-request" class="filterNotifications all latest notification" data-toggle="list">
-                <img class="avatar-md" src="./asset/img/avatars/avatar-female-1.jpg" data-toggle="tooltip" data-placement="top" title="Janette" alt="avatar">
-                <div class="status">
-                    <i class="material-icons online">fiber_manual_record</i>
-                </div>
-                <div class="data">
-                    <p>Michael, you have a new friend suggestion today.</p>
-                    <span><?php echo(date("F d, Y h:i:s", time())); ?></span>
-                </div>
-            </a>
+        <?php } ?>
             
+        <?php 
+            foreach ($listNotificationForSeen as $noti2) 
+            {
+        ?>
             <a href="#list-request" class="filterNotifications all oldest notification" data-toggle="list">
-                <img class="avatar-md" src="./asset/img/avatars/avatar-female-5.jpg" data-toggle="tooltip" data-placement="top" title="Janette" alt="avatar">
+                <img class="avatar-md" src="<?php echo $noti1->getAvatar(); ?>" data-toggle="tooltip" data-placement="top" title="Janette" alt="avatar">
                 <div class="status">
                     <i class="material-icons offline">fiber_manual_record</i>
                 </div>
                 <div class="data">
-                    <p>Keith have just sent you a new message.</p>
+                    <p><?php echo $user->getName(); ?>, you have a new friend suggestion today.</p>
                     <span><?php echo(date("F d, Y h:i:s", time())); ?></span>
                 </div>
             </a>
+        <?php } ?>
 
-            <a href="#list-request" class="filterNotifications all oldest notification" data-toggle="list">
-                <img class="avatar-md" src="./asset/img/avatars/avatar-female-5.jpg" data-toggle="tooltip" data-placement="top" title="Janette" alt="avatar">
-                <div class="status">
-                    <i class="material-icons offline">fiber_manual_record</i>
-                </div>
-                <div class="data">
-                    <p>Keith have just sent you a new message.</p>
-                    <span><?php echo(date("F d, Y h:i:s", time())); ?></span>
-                </div>
-            </a>
-            
         </div>
     </div>
 </div>
