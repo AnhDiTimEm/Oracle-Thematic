@@ -30,11 +30,11 @@
 					if($friend->getStatus()=="offline")
 					{
 						echo'#list-empty';
-						echo'" class="filterDiscussions all unread single" id="list-empty-list-'.$friend_Phone.'" data-toggle="list" role="tab">';
+						echo'" class="filterDiscussions all unread single" id="list-empty-list" data-toggle="list" role="tab">';
 					}
 					else{
 						echo'#list-chat';
-						echo'" class="filterDiscussions all unread single" id="list-chat-list'.$friend_Phone.'" data-toggle="list" role="tab">';
+						echo'" class="filterDiscussions all unread single" id="list-chat-list" data-toggle="list" role="tab">';
 					};
 					echo'
 						<img class="avatar-md" src="'.$friend->getAvatar().'" data-toggle="tooltip" data-placement="top" title="Michael" alt="avatar">
