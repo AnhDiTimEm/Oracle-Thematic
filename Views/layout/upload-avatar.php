@@ -2,30 +2,18 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="requests">
             <div class="title">
-                <h1>Start new chat</h1>
+                <h1>Choose Avatar</h1>
                 <button type="button" class="btn" data-dismiss="modal" aria-label="Close"><i class="material-icons">close</i></button>
             </div>
-            <div class="content">
-                <form>
-                    <div class="form-group">
-                        <label for="participant">Recipient:</label>
-                        <input type="text" class="form-control" id="" placeholder="Add recipient..." required>
-                        <div class="user" id="">
-                            <img class="avatar-sm" src="./asset/img/avatars/avatar-female-5.jpg" alt="avatar">
-                            <h5>Keith Morris</h5>
-                            <button class="btn"><i class="material-icons">close</i></button>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="topic">Topic:</label>
-                        <input type="text" class="form-control" id="" placeholder="What's the topic?" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message:</label>
-                        <textarea class="text-control" id="" placeholder="Send your welcome message...">Hmm, are you friendly?</textarea>
-                    </div>
-                    <button type="submit" class="btn button w-100">Start New Chat</button>
-                </form>
+            <div class="content">                
+                <div class="form-group">
+                    <?php 
+                        for ($i = 1; $i <= 20; $i++)
+                        {
+                    ?>
+                    <a href="?chatpage=1&account=avatar&num=<?php echo $i; ?>"><img class="avatar-sm" style="height: 70px; min-width: 70px; max-width: 70px; margin: 8px;" src="./Resources/images/avatar<?php echo $i; ?>.jpg" alt="avatar"></a>
+                        <?php } ?>
+                </div>
             </div>
         </div>
     </div>
