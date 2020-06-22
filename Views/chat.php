@@ -69,8 +69,10 @@
 							{
 								$typeRoom = $roomDao->GetTypeOfRoom($key);
 								$memberList = $roomDao->GetAllMemberOfRoom($key);
+								$allMess = $roomDao->GetAllMessByRoom($key);
 								$headerName;
 								$avatar;
+								$status;
 								if($typeRoom=="friend"){
 									foreach($memberList as $m){
 										if($m!=$_SESSION['user']){
@@ -81,19 +83,14 @@
 
 									$headerName=$friend->getName();
 									$avatar = $friend->getAvatar();
-
-									if($friend->getStatus()=="offline"){
-										require SITE_ROOT."/Views/layout/chat-inactive.php";
-									}
-									else{
-										require SITE_ROOT."/Views/layout/chat-active.php";
-									}
+									$status=$friend->getStatus();
 								}
 								else if($typeRoom=="group"){
+									$status="online";
 									$avatar="./Resources/images/group.jpg";
 									$headerName="Group code: ".$key;
-									require SITE_ROOT."/Views/layout/chat-active.php";
 								}
+								require SITE_ROOT."/Views/layout/chat-active.php";
 							}
 							
 						?>
@@ -137,7 +134,27 @@
 						}
 					})
 				}
+				$('button[name="send_chat"]').click(function(){
+					//alert($(this).attr('id'));
+					var idRoom = $(this).attr('id');
+					//alert(document.getElementById('content_chat'+idRoom).value);
+					var content = document.getElementById('content_chat'+idRoom).value;
+
+					$.ajax({
+						url:"Views/sendchat.php",
+						method:"POST",
+						data:{idRoom:idRoom, content:content},
+						success:function(){
+							alert("ok");
+						}
+					})
+					
+				});
 			});
+
+			// $(document).on('click', '#send_chat', function(){
+			// 	alert("wtf");
+			// });
 		</script>
 		<script>
 			// function scrollToBottom(el) { el.scrollTop = el.scrollHeight; }

@@ -1,6 +1,7 @@
 <?php
     require_once SITE_ROOT."/Config/DBCon.php";
     require_once SITE_ROOT."/Entities/Room.php";
+    require_once SITE_ROOT."/Entities/Room_Mess.php";
 
     class RoomDao extends DBConnection
 	{
@@ -26,7 +27,7 @@
 
         // get all messenger in room
         public function GetAllMessByRoom($id_Room){
-            $result = $this->RunQuery("SELECT * FROM ROOM_MESS WHERE ID_ROOM ='{$id_Room}'");
+            $result = $this->RunQuery("SELECT ID,ID_ROOM,PHONE_USER,TO_CHAR(TIME,'dd-mon-yyyy hh24:mi:ss'),CONTENT FROM ROOM_MESS WHERE ID_ROOM='{$id_Room}'");
             $allMess = array();
 
             while($row = oci_fetch_assoc($result))
@@ -35,7 +36,7 @@
                     $row['ID'],
                     $row['ID_ROOM'],
                     $row['PHONE_USER'],
-                    $row['TIME'],
+                    $row["TO_CHAR(TIME,'DD-MON-YYYYHH24:MI:SS')"],
                     $row['CONTENT']
                 );
                 array_push($allMess,$mess);
