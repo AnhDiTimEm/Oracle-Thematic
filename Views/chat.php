@@ -8,6 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Bootstrap core CSS -->
 		<link href="./asset/css/lib/bootstrap.min.css" type="text/css" rel="stylesheet">
+		
 		<!-- Swipe core CSS -->
 		<link href="./asset/css/swipe.min.css" type="text/css" rel="stylesheet">
 		<!-- Favicon -->
@@ -15,8 +16,6 @@
 
 	</head>
 	<body>
-	<!-- <main>	<div><?php echo $user->getPhone();?></div>
-	</main> -->
 		<main>
 			<div class="layout">
 				<!-- Start of Navigation -->
@@ -80,15 +79,33 @@
 
 			</div> <!-- Layout -->
 		</main>
-
 		<!-- Bootstrap/Swipe core JavaScript
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
 		<!-- <script src="./asset/js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
 		<script>window.jQuery || document.write('<script src="./asset/js/vendor/jquery-slim.min.js"><\/script>')</script>
 		<script src="./asset/js/vendor/popper.min.js"></script>
-		<script src="./asset/js/swipe.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- <script src="./asset/js/swipe.min.js"></script> -->
 		<script src="./asset/js/bootstrap.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				updateData();
+
+				setInterval(function(){
+					updateData()
+				},1000);
+				function updateData(){
+					$.ajax({
+						url:"Views/status.php",
+						method:"POST",
+						success:function(data){
+							$('#ajax_contacts').html(data);
+						}
+					})
+				}
+			});
+		</script>
 		<script>
 			function scrollToBottom(el) { el.scrollTop = el.scrollHeight; }
 			scrollToBottom(document.getElementById('content'));

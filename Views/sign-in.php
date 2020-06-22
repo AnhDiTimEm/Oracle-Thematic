@@ -12,6 +12,20 @@
 		<link href="./asset/css/swipe.min.css" type="text/css" rel="stylesheet">
 		<!-- Favicon -->
 		<link href="./asset/img/favicon.png" type="image/png" rel="icon">
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<style>
+/* Chrome, Safari, Edge, Opera */
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+		}
+
+		/* Firefox */
+		input[type=number] {
+		-moz-appearance: textfield;
+}
+		</style>
 	</head>
 	<body class="start">
 		<main>

@@ -1,6 +1,7 @@
 <?php
-    require_once("Config/Config.php");
+    require_once("Config/config.php");
     require_once SITE_ROOT."/Daos/UserDao.php";
+    require_once SITE_ROOT."/Daos/FriendDao.php";
     session_start();
     if (isset($_GET['chatpage'])){
         require_once SITE_ROOT."/Controllers/ChatController.php";

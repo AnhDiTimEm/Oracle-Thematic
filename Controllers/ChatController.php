@@ -20,6 +20,11 @@
         }
     }
     else{
+        $friendDao = new FriendDao();
+        $listFriend = $friendDao->GetAllFriend($_SESSION['user']);
+        // foreach($listFriend as $f){
+        //     echo $f->getStatus();
+        // }
         $dao->UpdateStatusUser($_SESSION['user'], 'online');
         $user = $dao->GetUserByPhone($_SESSION['user']);
         require_once SITE_ROOT."/Views/chat.php";

@@ -28,7 +28,7 @@
 		{
 			return $this->RunQuery(
 				"UPDATE USERR 
-				SET	STATUS = '{$Status}'
+				SET	STATUS = '{$Status}',TIMEOFF=SYSTIMESTAMP
 				WHERE PHONE = '{$Phone}'"
 			);
 		}
