@@ -1,17 +1,24 @@
-<div class="babble tab-pane fade" id="list-request" role="tabpanel" aria-labelledby="list-request-list">
+<div class="babble tab-pane fade" id="list-request-<?php echo $noti->getPhone(); ?>" role="tabpanel" aria-labelledby="list-request-list">
     <!-- Start of Chat -->
-    <div class="chat" id="chat3">
+    <div class="chat" id="<?php echo $noti->getPhone(); ?>">
         <div class="top">
             <div class="container">
                 <div class="col-md-12">
                     <div class="inside">
-                        <a href="#" onclick="return false;"><img class="avatar-md" src="./asset/img/avatars/avatar-female-6.jpg" data-toggle="tooltip" data-placement="top" title="Louis" alt="avatar"></a>
+                        <a href="#" onclick="return false;"><img class="avatar-md" src="<?php echo $noti->getAvatar(); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $noti->getName(); ?>" alt="avatar"></a>
                         <div class="status">
-                            <i class="material-icons offline">fiber_manual_record</i>
+                            <?php
+                                if ($noti->getStatus() == 'online') 
+                                {
+                                    echo '<i class="material-icons online">fiber_manual_record</i>';
+                                }
+                                else echo '<i class="material-icons">fiber_manual_record</i>';
+                            ?>
+                            
                         </div>
                         <div class="data">
-                            <h5><a href="#" onclick="return false;">Louis Martinez</a></h5>
-                            <span>Waitting</span>
+                            <h5><a href="#" onclick="return false;"><?php echo $noti->getName(); ?></a></h5>
+                            <span><?php echo $noti->getStatus(); ?></span>
                         </div>
                         
                     </div>
@@ -23,7 +30,7 @@
                 <div class="col-md-12">
                     <div class="no-messages request">
                         <a href="#" onclick="return false;"><img class="avatar-xl" src="./asset/img/avatars/avatar-female-6.jpg" data-toggle="tooltip" data-placement="top" title="Louis" alt="avatar"></a>
-                        <h5>Louis Martinez would like to add you as a contact. <span>Hi, I'd like to add you as a contact.</span></h5>
+                        <h5><?php echo $noti->getName(); ?> would like to add you as a contact. <span>Hi, I'd like to add you as a contact.</span></h5>
                         <form action="?chatpage=1&friend=request" method="post">
                             <div class="options">
                                 <button type="submit" class="btn button" name="accept"><i class="material-icons">check</i></button>

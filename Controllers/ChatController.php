@@ -82,6 +82,13 @@
                 $check = true;
             }
         }
+        else if ($_GET['friend'] == 'request')
+        {
+            if (isset($_POST['accept']))
+            {
+                
+            }
+        }
     }
     else
     {

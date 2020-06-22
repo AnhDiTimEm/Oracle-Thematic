@@ -18,26 +18,10 @@
             foreach ($listNotificationForRequest as $noti1) 
             {
         ?>
-            <a href="#list-request" class="filterNotifications all latest notification" data-toggle="list">
-                <img class="avatar-md" src="<?php echo $noti1->getAvatar(); ?>" data-toggle="tooltip" data-placement="top" title="Janette" alt="avatar">
+            <a href="#list-request-<?php echo $noti1->getPhone(); ?>" class="filterNotifications all latest notification" data-toggle="list">
+                <img class="avatar-md" src="<?php echo $noti1->getAvatar(); ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $noti1->getName(); ?>" alt="avatar">
                 <div class="status">
                     <i class="material-icons online">fiber_manual_record</i>
-                </div>
-                <div class="data">
-                    <p><?php echo $user->getName(); ?>, you have a new friend suggestion today.</p>
-                    <span><?php echo(date("F d, Y h:i:s", time())); ?></span>
-                </div>
-            </a>
-        <?php } ?>
-            
-        <?php 
-            foreach ($listNotificationForSeen as $noti2) 
-            {
-        ?>
-            <a href="#list-request" class="filterNotifications all oldest notification" data-toggle="list">
-                <img class="avatar-md" src="<?php echo $noti1->getAvatar(); ?>" data-toggle="tooltip" data-placement="top" title="Janette" alt="avatar">
-                <div class="status">
-                    <i class="material-icons offline">fiber_manual_record</i>
                 </div>
                 <div class="data">
                     <p><?php echo $user->getName(); ?>, you have a new friend suggestion today.</p>
