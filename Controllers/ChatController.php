@@ -9,7 +9,13 @@
     }
     else if (isset($_GET['account']))
     {
-        if ($_GET['account'] === 'update')
+        if ($_GET['account'] === 'avatar')
+        {
+            $avatar = './Resources/images/avatar'.$_GET['num'].'.jpg';
+            $dao->UpdateAvatarUser($_SESSION['user'], $avatar);
+            echo "Cập nhật ảnh đại diện thành công! <a href='javascript: history.go(-1)'>Trở lại</a>";
+        }
+        else if ($_GET['account'] === 'update')
         {
             require_once SITE_ROOT."/Entities/Userr.php";
             $USER = new Userr($_SESSION['user'], null);

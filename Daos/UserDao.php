@@ -34,6 +34,15 @@
 			);
 		}
 
+		public function UpdateAvatarUser($Phone, $Avatar)
+		{
+			return $this->RunQuery(
+				"UPDATE USERR 
+				SET	AVATAR = '{$Avatar}'
+				WHERE PHONE = '{$Phone}'"
+			);
+		}
+
 		public function UpdateUser($User)
 		{
 			return $this->RunQuery(
