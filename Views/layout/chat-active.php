@@ -1,16 +1,16 @@
-<div class="babble tab-pane fade active show" id="list-chat" role="tabpanel" aria-labelledby="list-chat-list">
+<div class="babble tab-pane fade" id="list-chat-<?php echo $key?>" role="tabpanel" aria-labelledby="list-chat-list">
     <!-- Start of Chat -->
-    <div class="chat" id="chat1">
+    <div class="chat" id="<?php echo $key?>">
         <div class="top">
             <div class="container">
                 <div class="col-md-12">
                     <div class="inside">
-                        <a href="#"><img class="avatar-md" src="./asset/img/avatars/avatar-female-5.jpg" data-toggle="tooltip" data-placement="top" title="Keith" alt="avatar"></a>
+                        <a href="#"><img class="avatar-md" src="<?php echo $avatar;?>" data-toggle="tooltip" data-placement="top" title="Keith" alt="avatar"></a>
                         <div class="status">
                             <i class="material-icons online">fiber_manual_record</i>
                         </div>
                         <div class="data">
-                            <h5><a href="#" ><?php echo $key?></a></h5>
+                            <h5><a href="#" ><?php echo $headerName?></a></h5>
                             <span>Active now</span>
                         </div>
                         

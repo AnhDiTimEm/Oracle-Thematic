@@ -29,11 +29,11 @@
 					<a href="';
 					if($friend->getStatus()=="offline")
 					{
-						echo'#list-empty';
+						echo'#list-empty-'.$key.'';
 						echo'" class="filterDiscussions all unread single" id="list-empty-list" data-toggle="list" role="tab">';
 					}
 					else{
-						echo'#list-chat';
+						echo'#list-chat-'.$key.'';
 						echo'" class="filterDiscussions all unread single" id="list-chat-list" data-toggle="list" role="tab">';
 					};
 					echo'
@@ -57,10 +57,10 @@
 				}
 				else if($typeRoom == "group"){
 					echo'
-					<a href="#list-empty" class="filterDiscussions all unread single" id="list-empty-list'.$key.'" data-toggle="list" role="tab">
-						<img class="avatar-md" src="./asset/img/avatars/avatar-male-1.jpg" data-toggle="tooltip" data-placement="top" title="Michael" alt="avatar">
+					<a href="#list-chat-'.$key.'" class="filterDiscussions all unread single" id="list-chat-list" data-toggle="list" role="tab">
+						<img class="avatar-md" src="./Resources/images/group.jpg" data-toggle="tooltip" data-placement="top" title="Michael" alt="avatar">
 						<div class="status">
-							<i class="material-icons offline">fiber_manual_record</i>
+							<i class="material-icons online">fiber_manual_record</i>
 						</div>';
 					echo'
 					<div class="data">

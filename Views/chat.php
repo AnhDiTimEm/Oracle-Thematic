@@ -67,7 +67,33 @@
 						<?php 
 							foreach ($allRoom as $key) 
 							{
-								require SITE_ROOT."/Views/layout/chat-active.php";
+								$typeRoom = $roomDao->GetTypeOfRoom($key);
+								$memberList = $roomDao->GetAllMemberOfRoom($key);
+								$headerName;
+								$avatar;
+								if($typeRoom=="friend"){
+									foreach($memberList as $m){
+										if($m!=$_SESSION['user']){
+											$friend_Phone=$m;
+										}
+									}
+									$friend = $dao->GetUserByPhone($friend_Phone);
+
+									$headerName=$friend->getName();
+									$avatar = $friend->getAvatar();
+
+									if($friend->getStatus()=="offline"){
+										require SITE_ROOT."/Views/layout/chat-inactive.php";
+									}
+									else{
+										require SITE_ROOT."/Views/layout/chat-active.php";
+									}
+								}
+								else if($typeRoom=="group"){
+									$avatar="./Resources/images/group.jpg";
+									$headerName="Group code: ".$key;
+									require SITE_ROOT."/Views/layout/chat-active.php";
+								}
 							}
 							
 						?>
