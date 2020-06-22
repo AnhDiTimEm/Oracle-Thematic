@@ -31,55 +31,76 @@
             $phone_B = $_POST['phoneFriend'];
             $phone_A = $_SESSION['user'];
             $check = false;
-
-            foreach ($listt as $userr)
+            if ($phone_A == $phone_B) 
             {
-                if ($phone_B == $userr->getPhone())
+                echo "Không thể tự kết bạn chính mình! <a href='javascript: history.go(-1)'>Trở lại</a>";
+            }
+            else
+            {
+                foreach ($listt as $userr)
                 {
-                    require_once SITE_ROOT."/Entities/Friend.php";
-                    $listFriend = $friendDao->GetAllFriend();
-                    foreach ($listFriend as $friend)
+                    if ($phone_B == $userr->getPhone())
                     {
-                        if ($phone_A == $friend->getPhone_a() && $phone_B == $friend->getPhone_b())
+                        require_once SITE_ROOT."/Entities/Friend.php";
+                        $listFriend = $friendDao->GetAllFriend();
+                        foreach ($listFriend as $friend)
                         {
-                            if ($friend->getStatus() == 'accept')
+                            if ($phone_A == $friend->getPhone_a() && $phone_B == $friend->getPhone_b())
                             {
-                                echo "Đã có trong danh sách bạn bè, không cần thêm bạn lại! <a href='javascript: history.go(-1)'>Trở lại</a>";
-                                $check = true;
-                            }
-                            else if ($friend->getStatus() == 'waitting')
-                            {
-                                echo "Đã gửi lời mời rồi, chờ đối phương trả lời! <a href='javascript: history.go(-1)'>Trở lại</a>";
-                                $check = true;
-                            }
-                            else if ($friend->getStatus() == 'request' || $friend->getStatus() == 'seen')
-                            {   
-                                $friendDao->updateStatusFriend(new Friend($phone_A, $phone_B, 'accept'));
-                                $friendDao->updateStatusFriend(new Friend($phone_B, $phone_A, 'accept'));
-                                echo "Đã chấp nhận kết bạn! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
-                                $check = true;
-                            }
-                            else if ($friend->getStatus() == 'delete')
-                            {
-                                $friendDao->updateStatusFriend(new Friend($phone_A, $phone_B, 'waitting'));
-                                $friendDao->updateStatusFriend(new Friend($phone_B, $phone_A, 'request'));
-                                echo "Gửi lời mời thành công! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
-                                $check = true;
+                                if ($friend->getStatus() == 'accept')
+                                {
+                                    echo "Đã có trong danh sách bạn bè, không cần thêm bạn lại! <a href='javascript: history.go(-1)'>Trở lại</a>";
+                                    $check = true;
+                                }
+                                else if ($friend->getStatus() == 'waitting')
+                                {
+                                    echo "Đã gửi lời mời rồi, chờ đối phương trả lời! <a href='javascript: history.go(-1)'>Trở lại</a>";
+                                    $check = true;
+                                }
+                                else if ($friend->getStatus() == 'request' || $friend->getStatus() == 'seen')
+                                {   
+                                    $friendDao->updateStatusFriend(new Friend($phone_A, $phone_B, 'accept'));
+                                    $friendDao->updateStatusFriend(new Friend($phone_B, $phone_A, 'accept'));
+                                    echo "Đã chấp nhận kết bạn! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+                                    $check = true;
+                                }
+                                else if ($friend->getStatus() == 'delete')
+                                {
+                                    $friendDao->updateStatusFriend(new Friend($phone_A, $phone_B, 'waitting'));
+                                    $friendDao->updateStatusFriend(new Friend($phone_B, $phone_A, 'request'));
+                                    echo "Gửi lời mời thành công! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+                                    $check = true;
+                                }
                             }
                         }
-                    }
-                    if ($check == false)
-                    {
-                        $friendDao->AddFriend(new Friend($phone_A, $phone_B, ' '));
-                        echo "Gửi lời mời thành công! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
-                        $check = true;
+                        if ($check == false)
+                        {
+                            $friendDao->AddFriend(new Friend($phone_A, $phone_B, ' '));
+                            echo "Gửi lời mời thành công! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+                            $check = true;
+                        }
                     }
                 }
+                if ($check == false)
+                {
+                    echo "Số điện thoại chưa được tạo tài khoản, không thể kết bạn! <a href='javascript: history.go(-1)'>Trở lại</a>";
+                    $check = true;
+                }
             }
-            if ($check == false)
+        }
+        else if ($_GET['friend'] == 'request')
+        {
+            if (isset($_POST['accept']))
             {
-                echo "Số điện thoại chưa được tạo tài khoản, không thể kết bạn! <a href='javascript: history.go(-1)'>Trở lại</a>";
-                $check = true;
+                $friendDao->updateStatusFriend(new Friend($_SESSION['user'], $_POST['phone_B'], 'accept'));
+                $friendDao->updateStatusFriend(new Friend($_POST['phone_B'], $_SESSION['user'], 'accept'));
+                echo "Đã chấp nhận kết bạn! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+            }
+            else if (isset($_POST['cancel']))
+            {
+                $friendDao->updateStatusFriend(new Friend($_SESSION['user'], $_POST['phone_B'], 'delete'));
+                $friendDao->updateStatusFriend(new Friend($_POST['phone_B'], $_SESSION['user'], 'delete'));
+                echo "Đã hủy lời mời kết bạn! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
             }
         }
     }
@@ -95,7 +116,6 @@
         $dao->UpdateStatusUser($_SESSION['user'], 'online');
         $user = $dao->GetUserByPhone($_SESSION['user']);
         $listNotificationForRequest = $friendDao->GetNotificationForRequest($_SESSION['user']);
-        $listNotificationForSeen = $friendDao->GetNotificationForSeen($_SESSION['user']);
         require_once SITE_ROOT."/Views/chat.php";
     }
 ?>

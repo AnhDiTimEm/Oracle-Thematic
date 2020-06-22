@@ -63,15 +63,12 @@
 					<div class="tab-content" id="nav-tabContent">
 
 						<!-- Start of Babble -->
-						<?php require_once SITE_ROOT."/Views/layout/chat-active.php"; ?>
-						<!-- End of Babble -->
-
-						<!-- Start of Babble -->
-						<?php require_once SITE_ROOT."/Views/layout/chat-inactive.php"; ?>
-						<!-- End of Babble -->
-
-						<!-- Start of Babble -->
-						<?php require_once SITE_ROOT."/Views/layout/chat-request.php"; ?>
+						<?php 
+							foreach ($listNotificationForRequest as $noti) 
+							{
+								require SITE_ROOT."/Views/layout/chat-request.php";
+							}
+						?>
 						<!-- End of Babble -->
 
 					</div>
