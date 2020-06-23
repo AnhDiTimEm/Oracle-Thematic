@@ -94,7 +94,7 @@
 							}
 							
 						?>
-						<!-- Start of Babble -->
+						<!-- Start of Babble Notification -->
 						<?php 
 							foreach ($listNotificationForRequest as $noti) 
 							{
@@ -102,7 +102,7 @@
 							}
 							
 						?>
-						<!-- End of Babble -->
+						<!-- End of Babble Notification -->
 
 					</div>
 				</div>

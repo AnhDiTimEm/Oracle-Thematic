@@ -8,7 +8,38 @@
 		public function __construct() 
 		{
             parent::__construct();
-		}
+        }
+        
+        // public function generate_string($input, $strength)
+        // {
+        //     $input_length = strlen($input);
+        //     $random_string = '';
+        //     for($i = 0; $i < $strength; $i++)
+        //     {
+        //         $random_character = $input[mt_rand(0, $input_length - 1)];
+        //         $random_string .= $random_character;
+        //     }
+        //     return $random_string;
+        // }
+
+        public function InsertRoom($Phone_A, $Phone_B)
+        {
+            $input = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+            $input_length = strlen($input);
+            $random_string = '';
+            for($i = 0; $i < 20; $i++)
+            {
+                $random_character = $input[mt_rand(0, $input_length - 1)];
+                $random_string .= $random_character;
+            }
+            $Id = $random_string;
+
+            //$Id = generate_string($permitted_chars, 20);
+            $this->RunQuery("INSERT INTO ROOM(ID_ROOM, PASSWORD, TYPE) VALUES ('{$Id}', null, 'friend')");
+            $this->RunQuery("INSERT INTO ROOM_DETAIL(ID_ROOM, PHONE_USER) VALUES ('{$Id}', '{$Phone_A}')");
+            $this->RunQuery("INSERT INTO ROOM_DETAIL(ID_ROOM, PHONE_USER) VALUES ('{$Id}', '{$Phone_B}')");
+        }
 
 		public function GetAllRoomByPhone($phone) // get all id_room where user has join
 		{
