@@ -1,12 +1,11 @@
 <?php 
-
+//echo current($allRoom);
 if($status=="offline"){
-    echo'<div class="babble tab-pane fade active show" id="list-empty-'.$key.'" role="tabpanel" aria-labelledby="list-empty-list">';
+    echo'<div class="babble tab-pane fade'.$active.'" id="list-empty-'.$key.'" role="tabpanel" aria-labelledby="list-empty-list">';
 }
 else if($status=="online"){
-    echo'<div class="babble tab-pane fade active show" id="list-chat-'.$key.'" role="tabpanel" aria-labelledby="list-chat-list">';
+    echo'<div class="babble tab-pane fade'.$active.'" id="list-chat-'.$key.'" role="tabpanel" aria-labelledby="list-chat-list">';
 }
-
 ?>
     <!-- Start of Chat -->
     <div class="chat" id="1">

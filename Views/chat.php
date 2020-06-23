@@ -63,48 +63,57 @@
 
 				<div class="main">
 					<div class="tab-content" id="nav-tabContent">
-						<!--  load babble chat-->
-						<?php 
-							foreach ($allRoom as $key) 
-							{
-								$typeRoom = $roomDao->GetTypeOfRoom($key);
-								$memberList = $roomDao->GetAllMemberOfRoom($key);
-								$allMess = $roomDao->GetAllMessByRoom($key);
-								$headerName;
-								$avatar;
-								$status;
-								if($typeRoom=="friend"){
-									foreach($memberList as $m){
-										if($m!=$_SESSION['user']){
-											$friend_Phone=$m;
-										}
-									}
-									$friend = $dao->GetUserByPhone($friend_Phone);
+						<!-- <span id ="reloadcontent"> -->
+							<!--  load babble chat -->
+							<?php 
+								// foreach ($allRoom as $key) 
+								// {
+								// 	$active="";
+								// 	if(current($allRoom)==1){
+								// 		$active=" active show";
+								// 	}
+								// 	else{
+								// 		$active="";
+								// 	}
+								// 	$typeRoom = $roomDao->GetTypeOfRoom($key);
+								// 	$memberList = $roomDao->GetAllMemberOfRoom($key);
+								// 	$allMess = $roomDao->GetAllMessByRoom($key);
+								// 	$headerName;
+								// 	$avatar;
+								// 	$status;
+								// 	if($typeRoom=="friend"){
+								// 		foreach($memberList as $m){
+								// 			if($m!=$_SESSION['user']){
+								// 				$friend_Phone=$m;
+								// 			}
+								// 		}
+								// 		$friend = $dao->GetUserByPhone($friend_Phone);
 
-									$headerName=$friend->getName();
-									$avatar = $friend->getAvatar();
-									$status=$friend->getStatus();
-								}
-								else if($typeRoom=="group"){
-									$status="online";
-									$avatar="./Resources/images/group.jpg";
-									$headerName="Group code: ".$key;
-								}
-								require SITE_ROOT."/Views/layout/chat-active.php";
-							}
-							
-						?>
-						<!-- Start of Babble Notification -->
-						<?php 
-							foreach ($listNotificationForRequest as $noti) 
-							{
-								require SITE_ROOT."/Views/layout/chat-request.php";
-							}
-							
-						?>
-						<!-- End of Babble Notification -->
+								// 		$headerName=$friend->getName();
+								// 		$avatar = $friend->getAvatar();
+								// 		$status=$friend->getStatus();
+								// 	}
+								// 	else if($typeRoom=="group"){
+								// 		$status="online";
+								// 		$avatar="./Resources/images/group.jpg";
+								// 		$headerName="Group code: ".$key;
+								// 	}
+								// 	require SITE_ROOT."/Views/layout/chat-active.php";
+								// }
+								
+							?>
+						<!-- </span> -->
+							<!-- Start of Babble Notification -->
+							<?php 
+								// foreach ($listNotificationForRequest as $noti) 
+								// {
+								// 	require SITE_ROOT."/Views/layout/chat-request.php";
+								// }
+								
+							?>
+							<!-- End of Babble Notification -->
 
-					</div>
+					</div>					
 				</div>
 
 			</div> <!-- Layout -->
@@ -120,10 +129,12 @@
 		<script src="./asset/js/bootstrap.min.js"></script>
 		<script>
 			function scrollToBottom(el) { el.scrollTop = el.scrollHeight; }
-			var els = document.getElementsByName('content');
-			//scrollToBottom(document.getElementsByName('content'));
-			for(var i = 0 ; i<els.length;i++){
-				scrollToBottom(els[i]);
+			function scroll(){
+				var els = document.getElementsByName('content');
+				//scrollToBottom(document.getElementsByName('content'));
+				for(var i = 0 ; i<els.length;i++){
+					scrollToBottom(els[i]);
+				}
 			}
 			//Logout Function
 				function visitPage(){window.location="?signout"}
@@ -133,10 +144,17 @@
 		<script>
 			$(document).ready(function(){
 				updateData();
-
+				scroll();
+				bindSendChat()
+				updateStatusInChat();
+				scroll();
+				LoadTabContent();
 				setInterval(function(){
-					updateData()
+					updateData(),
+					updateStatusInChat()
 				},1000);
+
+				//ajax status in Contact
 				function updateData(){
 					$.ajax({
 						url:"Views/status_ajax.php",
@@ -146,7 +164,32 @@
 						}
 					})
 				}
-				$('button[name="send_chat"]').click(function(){
+				//ajax status in Discussion
+				function updateStatusInChat(){
+					$.ajax({
+						url:"Views/statusChat_ajax.php",
+						method:"POST",
+						success:function(data){
+							$('#showChatRoom').html(data);
+						}
+					})
+				}
+				// load Mess Content
+				function LoadTabContent(){
+					$.ajax({
+						url:"Views/showmess_ajax.php",
+						method:"POST",
+						success:function(data){
+							$('#nav-tabContent').html(data);
+							bindSendChat();
+							scroll();
+						}
+					});
+				}
+
+				//send Mess event onclick
+				function bindSendChat(){
+					$('button[name="send_chat"]').click(function(){
 					var idRoom = $(this).attr('id');
 					//alert(idRoom);
 					//alert(document.getElementById('content_chat'+idRoom).value);
@@ -157,17 +200,18 @@
 						method:"POST",
 						data:{IdRoom:idRoom, Content:content},
 						success:function(){
+							LoadTabContent();
 							document.getElementById('content_chat'+idRoom).value=null;
 						}
 					})
 					
 				});
+				}
+				
+				// ajax c
+
 			});
 
-			// $(document).on('click', '#send_chat', function(){
-			// 	alert("wtf");
-			// });
 		</script>
-
 	</body>
 </html>

@@ -1,9 +1,11 @@
 <?php
  // ajax cho online offline status o trang discussion
- 
+
 include("../Config/config.php");
 require_once SITE_ROOT."/Daos/RoomDao.php";
+require_once SITE_ROOT."/Daos/UserDao.php";
 $roomDao = new RoomDao();
+$dao = new UserDao();
 session_start();
 if( $_SESSION['user'] != null){
     $allRoom = $roomDao->GetAllRoomByPhone($_SESSION['user']);
@@ -67,6 +69,6 @@ if( $_SESSION['user'] != null){
             </a>
         ';
          };
-    echo'</div>'
+    echo'</div>';
 }
 ?>
