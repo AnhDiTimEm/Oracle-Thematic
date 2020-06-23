@@ -9,7 +9,7 @@
 				<!-- <a href="#notifications" data-toggle="tab" class="f-grow1"><i class="material-icons">notifications_none</i></a>
 				<button class="btn mode"><i class="material-icons">brightness_2</i></button> -->
 				<a href="#settings" data-toggle="tab"><i class="material-icons">settings</i></a>
-				<button class="btn power" onclick="visitPage();"><i class="material-icons">power_settings_new</i></button>
+				<a href="#signout" data-toggle="tab" onclick="visitPage();"><i class="material-icons">power_settings_new</i></a>
 			</div>
 		</div>
 	</div>

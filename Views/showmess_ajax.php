@@ -22,9 +22,10 @@ if( $_SESSION['user'] != null){
         $typeRoom = $roomDao->GetTypeOfRoom($key);
         $memberList = $roomDao->GetAllMemberOfRoom($key);
         $allMess = $roomDao->GetAllMessByRoom($key);
-        $headerName;
-        $avatar;
-        $status;
+        $headerName="";
+        $avatar="";
+        $status="";
+        $isAdminPhone="";
         if($typeRoom=="friend"){
             foreach($memberList as $m){
                 if($m!=$_SESSION['user']){
@@ -32,10 +33,14 @@ if( $_SESSION['user'] != null){
                 }
             }
             $friend = $dao->GetUserByPhone($friend_Phone);
-
             $headerName=$friend->getName();
             $avatar = $friend->getAvatar();
-            $status=$friend->getStatus();
+            if($friend_Phone!="1122334455" && $friend_Phone!="2233445566"){
+                $status=$friend->getStatus();
+            }
+            else{
+                $status="online";
+            }
         }
         else if($typeRoom=="group"){
             $status="online";

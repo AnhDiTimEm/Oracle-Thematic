@@ -53,7 +53,7 @@
 
             <!-- Start of Logout -->
             <div class="category">
-                <a href="/?signin" class="title collapsed">
+                <a href="?signout" class="title collapsed">
                     <i class="material-icons md-30 online">power_settings_new</i>
                     <div class="data">
                         <h5>Power Off</h5>

@@ -206,6 +206,7 @@
 						success:function(){
 							LoadTabContent();
 							document.getElementById('content_'+idRoom).value=null;
+							$('#content_'+idRoom).focus();
 						}
 					})
 					// end send click event

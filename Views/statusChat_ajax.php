@@ -16,6 +16,7 @@ if ($_SESSION['user'] != null)
         {
             $typeRoom = $roomDao->GetTypeOfRoom($key);
             $memberList = $roomDao->GetAllMemberOfRoom($key);
+            $friend_Phone="";
             if($typeRoom =="friend"){
                 foreach($memberList as $m){
                     if($m!=$_SESSION['user']){
@@ -23,6 +24,10 @@ if ($_SESSION['user'] != null)
                     }
                 }
                 $friend = $dao->GetUserByPhone($friend_Phone);
+
+                if($friend_Phone=="1122334455" || $friend_Phone=="2233445566"){
+                    $friend->setStatus("online");
+                }
                 echo'
                 <a href="';
                 if($friend->getStatus()=="offline")

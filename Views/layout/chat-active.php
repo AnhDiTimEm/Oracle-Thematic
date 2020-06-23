@@ -33,6 +33,8 @@ else if($status=="online"){
                                 <button class="dropdown-item connect" name="2"><i class="material-icons">videocam</i>Video Call</button>
                                 <hr> -->
                                 <?php
+                                // $isAdminPhone=$friend->getPhone();
+                                    if($friend_Phone!="1122334455" && $friend_Phone!="2233445566")
                                     if($typeRoom=="group"){
                                     echo'
                                         <button class="dropdown-item"><i class="material-icons">person_add</i>Add Contact</button>
