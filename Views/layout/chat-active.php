@@ -160,7 +160,7 @@ else if($status=="online"){
             <div class="col-md-12">
                 <div class="bottom">
                     <form class="position-relative w-100">
-                        <textarea class="form-control" placeholder="Start typing for reply..." rows="1" id='content_chat<?php echo $key?>'></textarea>
+                        <textarea class="form-control" placeholder="Start typing for reply..." rows="1" id='content_<?php echo $key?>' name ="content_chat"></textarea>
                         <button class="btn emoticons"><i class="material-icons">insert_emoticon</i></button>
                         <button type="button" name="send_chat"class="btn send" id="<?php echo $key?>"><i class="material-icons">send</i></button>
                     </form>

@@ -176,6 +176,7 @@
 				}
 				// load Mess Content
 				function LoadTabContent(){
+					
 					$.ajax({
 						url:"Views/showmess_ajax.php",
 						method:"POST",
@@ -189,11 +190,13 @@
 
 				//send Mess event onclick
 				function bindSendChat(){
+
+					//send click event
 					$('button[name="send_chat"]').click(function(){
 					var idRoom = $(this).attr('id');
 					//alert(idRoom);
 					//alert(document.getElementById('content_chat'+idRoom).value);
-					var content = document.getElementById('content_chat'+idRoom).value;
+					var content = document.getElementById('content_'+idRoom).value;
 
 					$.ajax({
 						url:"Views/sendchat_ajax.php",
@@ -201,12 +204,27 @@
 						data:{IdRoom:idRoom, Content:content},
 						success:function(){
 							LoadTabContent();
-							document.getElementById('content_chat'+idRoom).value=null;
+							document.getElementById('content_'+idRoom).value=null;
 						}
 					})
+					// end send click event
 					
 				});
+				
+					//enter event
+					$('textarea').keydown(function(e){
+						var code = e.keyCode? e.keyCode : e.which;
+						if(code=='13'){
+							var thisId = $(this).attr('id');
+							var id =thisId.substr(8,thisId.length-1);
+							var string ='button[id="'+id+'"]';
+							$(string).click();
+						}
+					})
+					//end enter event
+
 				}
+				 //end bind send chat
 				
 				// ajax c
 
