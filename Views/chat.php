@@ -143,6 +143,7 @@
 				{$("#chat"+$(this).attr("name")).hide(),$("#call"+$(this).attr("name")).show()});
 		</script>
 		<script>
+			var id="";
 			$(document).ready(function(){
 				updateData();
 				scroll();
@@ -195,6 +196,7 @@
 					//send click event
 					$('button[name="send_chat"]').click(function(){
 					var idRoom = $(this).attr('id');
+					id=idRoom;
 					//alert(idRoom);
 					//alert(document.getElementById('content_chat'+idRoom).value);
 					var content = document.getElementById('content_'+idRoom).value;
@@ -206,7 +208,7 @@
 						success:function(){
 							LoadTabContent();
 							document.getElementById('content_'+idRoom).value=null;
-							$('#content_'+idRoom).focus();
+							document.getElementById('content_'+id).focus();
 						}
 					})
 					// end send click event
