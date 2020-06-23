@@ -1,6 +1,6 @@
 <?php
 
-    if($_GET["signin"]==1){
+    if($_GET["signin"]=='1'){
         if(isset($_POST['inputPhone']) && isset($_POST['inputPassword'])){
             $phone = $_POST['inputPhone'];
             $pass = $_POST['inputPassword'];

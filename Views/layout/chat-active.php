@@ -23,8 +23,8 @@ else if($status=="online"){
                         </div>
                         
                         <!-- START header chat -->
-                        <button class="btn connect d-md-block d-none" name="1"><i class="material-icons md-30">phone_in_talk</i></button>
-                        <button class="btn connect d-md-block d-none" name="1"><i class="material-icons md-36">videocam</i></button>
+                        <!-- <button class="btn connect d-md-block d-none" name="1"><i class="material-icons md-30">phone_in_talk</i></button>
+                        <button class="btn connect d-md-block d-none" name="1"><i class="material-icons md-36">videocam</i></button> -->
                         <!-- <button class="btn d-md-block d-none"><i class="material-icons md-30">info</i></button> -->
                         <div class="dropdown">
                             <button class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons md-30">more_vert</i></button>
