@@ -40,6 +40,24 @@ function CheckPhone()
     
 }
 
+function CheckPhoneSignin()
+{
+    var phone = document.getElementById('inputPhone').value;
+    if (phone.length !== 11 && phone.length !== 10)
+    {
+        document.getElementById('SignupNotification').style = "color: red;";
+        document.getElementById('SignupNotification').innerHTML = "Invalid phone number!";
+        return 1;
+    }
+    else
+    {
+        document.getElementById('SignupNotification').innerHTML = "";
+        document.getElementById('sign-in').disabled = false;
+        return 0;
+    }
+    
+}
+
 function CheckInformation()
 {
     if (CheckPhone() === 0)

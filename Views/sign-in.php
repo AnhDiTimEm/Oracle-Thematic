@@ -51,14 +51,14 @@
 								<p>or use your email account:</p>
 								<form  action="?signin=1" method="POST">
 									<div class="form-group">
-										<input type="number" name="inputPhone" id="inputPhone" class="form-control" placeholder="Your Phone" onchange="CheckPhone()" onkeydown="CheckPhone()" required>
+										<input type="number" name="inputPhone" id="inputPhone" class="form-control" placeholder="Your Phone" onclick="CheckPhoneSignin()" onmouseover="CheckPhoneSignin()" onchange="CheckPhoneSignin()" onkeydown="CheckPhoneSignin()" required>
 										<button class="btn icon"><i class="material-icons">phone</i></button>
 									</div>
 									<div class="form-group">
 										<input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password" required>
 										<button class="btn icon"><i class="material-icons">lock_outline</i></button>
 									</div>
-									<button type="submit" class="btn button" >Sign In</button> <!--formaction="index-2.html" -->
+									<button id="sign-in" type="submit" class="btn button" disabled>Sign In</button> <!--formaction="index-2.html" -->
 									<p id="SignupNotification"></p>
 									<div class="callout">
 										<span>Don't have account? <a href="?signup">Create Account</a></span>
