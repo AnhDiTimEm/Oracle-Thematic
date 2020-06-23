@@ -14,6 +14,32 @@
         <h1>Notifications</h1>
         <div class="list-group" id="alerts" role="tablist">
 
+        <!-- Auto add 2 notification of ADMIN -->
+
+        <a href="#list-request-1122334455" class="filterNotifications all latest notification" data-toggle="list">
+            <img class="avatar-md" src="./Resources/images/avatar19.jpg" data-toggle="tooltip" data-placement="top" title="ADMIN 1" alt="avatar">
+            <div class="status">
+                <i class="material-icons online">fiber_manual_record</i>
+            </div>
+            <div class="data">
+                <p>You have become friend with the ADMIN 1 of our website.</p>
+                <span><?php echo(date("F d, Y h:i:s", time())); ?></span>
+            </div>
+        </a>
+
+        <a href="#list-request-2233445566" class="filterNotifications all latest notification" data-toggle="list">
+            <img class="avatar-md" src="./Resources/images/avatar18.jpg" data-toggle="tooltip" data-placement="top" title="ADMIN 2" alt="avatar">
+            <div class="status">
+                <i class="material-icons online">fiber_manual_record</i>
+            </div>
+            <div class="data">
+                <p>You have become friend with the ADMIN 2 of our website.</p>
+                <span><?php echo(date("F d, Y h:i:s", time())); ?></span>
+            </div>
+        </a>
+
+        <!-- END OF -->
+
         <?php 
             foreach ($listNotificationForRequest as $noti1) 
             {
