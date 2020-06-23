@@ -39,13 +39,13 @@
 
 		   if(!$stid){
 				$e = oci_error($conn);  // For oci_parse errors pass the connection handle
-				header("Location:?error.php");
+				header("Location:./Views/error.php");
 		   }
 
 		   $result = oci_execute($stid);
 		   if(!$result){
 				$e = oci_error($conn);  // For oci_parse errors pass the connection handle
-				header("Location:?error.php");
+				header("Location:./Views/error.php");
 		   }
 		   oci_close($conn);
 		   return $stid;

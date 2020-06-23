@@ -64,6 +64,7 @@ else if($status=="online"){
                 <div class="col-md-12">
                         <!-- load mess -->
                         <?php
+                            $flagName="";
                             foreach($allMess as $mess){
                                 $sender = $dao->GetUserByPhone($mess->getPhone_user());
                                 $d=strtotime($mess->getTime());
@@ -71,14 +72,20 @@ else if($status=="online"){
                                 if($mess->getPhone_user()!=$_SESSION['user']){
                                     echo'
                                     <div class="message">
-                                    <img class="avatar-md" src="'.$sender->getAvatar().'" data-toggle="tooltip" data-placement="top" title="Keith" alt="avatar">
+                                    <img class="avatar-md" src="'.$sender->getAvatar().'" data-toggle="tooltip" data-placement="top" title="'.$sender->getName().'" alt="avatar">
                                     <div class="text-main">
                                         <div class="text-group">
                                             <div class="text">
                                                 <p>'.$mess->getContent().'</p>
                                             </div>
                                         </div>
-                                        <span>'.date("d-m-y H:i:sa",$d).'</span>
+                                        ';
+                                        if($flagName!="me"){
+                                            echo'
+                                            <span>'.date("d-m-y H:i:sa",$d).'</span>';
+                                            $flagName="me";
+                                        }
+                                        echo'
                                     </div>
                                 </div>
                                     ';
@@ -91,8 +98,13 @@ else if($status=="online"){
                                             <div class="text me">
                                                 <p>'.$mess->getContent().'</p>
                                             </div>
-                                        </div>
-                                        <span>'.date("d-m-y H:i:sa",$d).'</span>
+                                        </div>';
+                                        if($flagName!="notme"){
+                                            echo'
+                                            <span>'.date("d-m-y H:i:sa",$d).'</span>';
+                                            $flagName="notme";
+                                        }
+                                        echo'
                                     </div>
                                 </div>
                                     ';

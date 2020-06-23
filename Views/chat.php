@@ -133,12 +133,13 @@
 		<script>
 			$(document).ready(function(){
 				updateData();
+
 				setInterval(function(){
 					updateData()
 				},1000);
 				function updateData(){
 					$.ajax({
-						url:"Views/status.php",
+						url:"Views/status_ajax.php",
 						method:"POST",
 						success:function(data){
 							$('#ajax_contacts').html(data);
@@ -152,7 +153,7 @@
 					var content = document.getElementById('content_chat'+idRoom).value;
 
 					$.ajax({
-						url:"Views/sendchat.php",
+						url:"Views/sendchat_ajax.php",
 						method:"POST",
 						data:{IdRoom:idRoom, Content:content},
 						success:function(){
