@@ -6,19 +6,19 @@
             $pass = $_POST['inputPassword'];
             $dao = new UserDao();
             
-            // $listt = $dao->GetAllUserr();     // nên dùng hàm này khi đăng ký
-            // $user = new Userr(null, null);
-            // foreach ($listt as $userr)
-            // {
-            //     //echo $userr;
-            //     if ($userr->getPhone() === $phone)
-            //     {
-            //         $user = $dao->GetUserByPhone($phone);
-            //     }
-            // }
+            $listt = $dao->GetAllUserr();     // nên dùng hàm này khi đăng ký
+            $user = new Userr(null, null);
+            foreach ($listt as $userr)
+            {
+                //echo $userr;
+                if ($userr->getPhone() === $phone)
+                {
+                    $user = $dao->GetUserByPhone($phone);
+                }
+            }
 
 
-            $user = $dao->GetUserByPhone($phone);
+            //$user = $dao->GetUserByPhone($phone);
             if($user->getPhone() == null)
             {
                 echo "Số điện thoại không tồn tại! <a href='javascript: history.go(-1)'>Trở lại</a>";
