@@ -3,6 +3,7 @@
 
     $dao = new UserDao();
     $friendDao = new FriendDao();
+    $roomDao = new RoomDao();
 
     if(($_SESSION['user']) == null){
         header("Location:?signin");
@@ -100,6 +101,7 @@
             {
                 $friendDao->updateStatusFriend(new Friend($_SESSION['user'], $_POST['phone_B'], 'accept'));
                 $friendDao->updateStatusFriend(new Friend($_POST['phone_B'], $_SESSION['user'], 'accept'));
+                $roomDao->InsertRoom($_SESSION['user'], $_POST['phone_B']);
                 echo "Đã chấp nhận kết bạn! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
             }
             else if (isset($_POST['cancel']))
@@ -112,9 +114,7 @@
     }
     else
     {
-        $roomDao = new RoomDao();
         $allRoom = $roomDao->GetAllRoomByPhone($_SESSION['user']);
-        $friendDao = new FriendDao();
         $listFriend = $friendDao->GetAllFriend($_SESSION['user']);
         // foreach($listFriend as $f){
         //     echo $f->getStatus();

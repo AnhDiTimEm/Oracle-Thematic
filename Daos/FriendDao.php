@@ -50,7 +50,7 @@
             
 			while ($row = oci_fetch_assoc($result))
 			{
-                $friend = $userDao->GetUSerByPhone($row['PHONE_B']);
+                $friend = $userDao->GetUserByPhone($row['PHONE_B']);
 
                 $userr = new Userr($row['PHONE_B'],null);
                 $userr->addAll(
