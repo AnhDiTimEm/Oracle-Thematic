@@ -27,7 +27,7 @@
 
         // get all messenger in room
         public function GetAllMessByRoom($id_Room){
-            $result = $this->RunQuery("SELECT ID,ID_ROOM,PHONE_USER,TO_CHAR(TIME,'dd-mon-yyyy hh24:mi:ss'),CONTENT FROM ROOM_MESS WHERE ID_ROOM='{$id_Room}'");
+            $result = $this->RunQuery("SELECT ID,ID_ROOM,PHONE_USER,TO_CHAR(TIME,'dd-mon-yyyy hh24:mi:ss'),CONTENT FROM ROOM_MESS WHERE ID_ROOM='{$id_Room}' ORDER BY TIME");
             $allMess = array();
 
             while($row = oci_fetch_assoc($result))

@@ -10,7 +10,7 @@
             parent::__construct();
 		}
         public function InsertMess($idRoom,$phone,$content){
-            return $this->RunQuery("INSERT INTO ROOM_MESS(ID_ROOM,PHONE_USER,CONTENT,TIME) VALUES('{$idRoom}','{$phone}',SYSTIMESTAMP,'{$content}')");
+            return $this->RunQuery("INSERT INTO ROOM_MESS(ID_ROOM,PHONE_USER,Time,CONTENT) VALUES('{$idRoom}','{$phone}',SYSTIMESTAMP,'{$content}')");
         }
 
 	}

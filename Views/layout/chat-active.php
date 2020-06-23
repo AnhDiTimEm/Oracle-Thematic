@@ -1,10 +1,10 @@
 <?php 
 
 if($status=="offline"){
-    echo'<div class="babble tab-pane fade" id="list-empty-'.$key.'" role="tabpanel" aria-labelledby="list-empty-list">';
+    echo'<div class="babble tab-pane fade active show" id="list-empty-'.$key.'" role="tabpanel" aria-labelledby="list-empty-list">';
 }
 else if($status=="online"){
-    echo'<div class="babble tab-pane fade" id="list-chat-'.$key.'" role="tabpanel" aria-labelledby="list-chat-list">';
+    echo'<div class="babble tab-pane fade active show" id="list-chat-'.$key.'" role="tabpanel" aria-labelledby="list-chat-list">';
 }
 
 ?>
@@ -59,7 +59,7 @@ else if($status=="online"){
 
                             <?php if($allMess != null){?>
         <!-- div show discussion -->
-        <div class="content" id="content">
+        <div class="content" name="content">
             <div class="container">
                 <div class="col-md-12">
                         <!-- load mess -->

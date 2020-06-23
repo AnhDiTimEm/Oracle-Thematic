@@ -5,7 +5,6 @@ require_once SITE_ROOT."/Daos/FriendDao.php";
 session_start();
 // require_once SITE_ROOT."/Daos/FriendDao.php";
 if( $_SESSION['user'] != null){
-    $onlineFriend = array();
     $friendDao = new FriendDao();
     $output= '<div class="list-group" id="contacts" role="tablist" name="contacts">';
     $listFriend = $friendDao->GetAllFriendByPhone($_SESSION['user']);
