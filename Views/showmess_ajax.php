@@ -45,6 +45,75 @@ if( $_SESSION['user'] != null){
         require SITE_ROOT."/Views/layout/chat-active.php";
         $active="";
     }
+    echo '
+    <div class="babble tab-pane fade" id="list-request-1122334455" role="tabpanel" aria-labelledby="list-request-list">
+        <!-- Start of Chat -->
+        <div class="chat" id="1122334455">
+            <div class="top">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="inside">
+                            <a href="#" onclick="return false;"><img class="avatar-md" src="./Resources/images/avatar19.jpg" data-toggle="tooltip" data-placement="top" title="ADMIN 1" alt="avatar"></a>
+                            <div class="status">
+                                <i class="material-icons online">fiber_manual_record</i>
+                            </div>
+                            <div class="data">
+                                <h5><a href="#" onclick="return false;">ADMIN 1</a></h5>
+                                <span>online</span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content empty">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="no-messages request">
+                            <a href="#" onclick="return false;"><img class="avatar-xl" src="./Resources/images/avatar19.jpg" data-toggle="tooltip" data-placement="top" title="ADMIN 1" alt="avatar"></a>
+                            <h5>ADMIN 1 would like to add you as a contact. <span>Hi, I would like to add you as a contact.</span></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Chat -->
+    </div>
+
+    <div class="babble tab-pane fade" id="list-request-2233445566" role="tabpanel" aria-labelledby="list-request-list">
+        <!-- Start of Chat -->
+        <div class="chat" id="2233445566">
+            <div class="top">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="inside">
+                            <a href="#" onclick="return false;"><img class="avatar-md" src="./Resources/images/avatar18.jpg" data-toggle="tooltip" data-placement="top" title="ADMIN 2" alt="avatar"></a>
+                            <div class="status">
+                                <i class="material-icons online">fiber_manual_record</i>
+                            </div>
+                            <div class="data">
+                                <h5><a href="#" onclick="return false;">ADMIN 2</a></h5>
+                                <span>online</span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content empty">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="no-messages request">
+                            <a href="#" onclick="return false;"><img class="avatar-xl" src="./Resources/images/avatar18.jpg" data-toggle="tooltip" data-placement="top" title="ADMIN 2" alt="avatar"></a>
+                            <h5>ADMIN 2 would like to add you as a contact. <span>Hi, I would like to add you as a contact.</span></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Chat -->
+    </div>
+    ';
 
     foreach ($listNotificationForRequest as $noti) 
         {
@@ -53,5 +122,9 @@ if( $_SESSION['user'] != null){
 
     // echo'</div>';
     // echo"wtf";
+
+
+    ///////////////////////
+    
 }
 ?>
