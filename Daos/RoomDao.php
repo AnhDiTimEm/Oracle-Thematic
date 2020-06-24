@@ -2,6 +2,7 @@
     require_once SITE_ROOT."/Config/DBCon.php";
     require_once SITE_ROOT."/Entities/Room.php";
     require_once SITE_ROOT."/Entities/Room_Mess.php";
+    require_once SITE_ROOT."/Entities/Room_Detail.php";
 
     class RoomDao extends DBConnection
 	{
@@ -22,6 +23,11 @@
         //     return $random_string;
         // }
 
+        public function DeleteRoom($Id)
+        {
+            $this->RunQuery("DELETE FROM ROOM_DETAIL WHERE ID_ROOM = '{$Id}'");
+        }
+
         public function InsertRoom($Phone_A, $Phone_B)
         {
             $input = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -39,6 +45,22 @@
             $this->RunQuery("INSERT INTO ROOM(ID_ROOM, PASSWORD, TYPE) VALUES ('{$Id}', null, 'friend')");
             $this->RunQuery("INSERT INTO ROOM_DETAIL(ID_ROOM, PHONE_USER) VALUES ('{$Id}', '{$Phone_A}')");
             $this->RunQuery("INSERT INTO ROOM_DETAIL(ID_ROOM, PHONE_USER) VALUES ('{$Id}', '{$Phone_B}')");
+        }
+
+        public function GetAllRoomDetailByPhone($phone)
+        {
+            $result = $this->RunQuery("SELECT * FROM ROOM_DETAIL Where PHONE_USER='{$phone}'");
+
+            $listRoom = array();
+            
+			while ($row = oci_fetch_assoc($result))
+			{
+                $id_Room = new Room_Detail($row['ID_ROOM'], $row['PHONE_USER']);
+                
+				array_push($listRoom, $id_Room);
+			}
+			oci_free_statement($result);
+            return $listRoom;
         }
 
 		public function GetAllRoomByPhone($phone) // get all id_room where user has join

@@ -48,7 +48,7 @@ else if($status=="online"){
                                     else if($typeRoom=="friend")
                                     {
                                         echo'
-                                        <form action="?chatpage=1&friend=action&phone='.$headerName.'" method="post">
+                                        <form action="?chatpage=1&friend=action&phone='.$friend_Phone.'" method="post">
                                             <button type="submit" name="clear-history" class="dropdown-item"><i class="material-icons">clear</i>Clear History</button>
                                             <button type="submit" name="delete" class="dropdown-item"><i class="material-icons">delete</i>Delete Contact</button>
                                         </form>

@@ -95,23 +95,54 @@
                 }
             }
         }
-        else if ($_GET['friend'] == 'action')
+        else if ($_GET['friend'] == 'request')
         {
-            if (isset($_POST['clear-history']))
+            if (isset($_POST['accept']))
             {
                 $friendDao->updateStatusFriend(new Friend($_SESSION['user'], $_POST['phone_B'], 'accept'));
                 $friendDao->updateStatusFriend(new Friend($_POST['phone_B'], $_SESSION['user'], 'accept'));
                 $roomDao->InsertRoom($_SESSION['user'], $_POST['phone_B']);
                 echo "Đã chấp nhận kết bạn! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
             }
-            else if (isset($_POST['delete']))
+            else if (isset($_POST['cancel']))
             {
                 $friendDao->updateStatusFriend(new Friend($_SESSION['user'], $_POST['phone_B'], 'delete'));
                 $friendDao->updateStatusFriend(new Friend($_POST['phone_B'], $_SESSION['user'], 'delete'));
                 echo "Đã hủy lời mời kết bạn! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
             }
         }
-        else if ()
+        else if ($_GET['friend'] == 'action')
+        {
+            if (isset($_POST['clear-history']))
+            {
+                // $friendDao->updateStatusFriend(new Friend($_SESSION['user'], $_POST['phone_B'], 'accept'));
+                // $friendDao->updateStatusFriend(new Friend($_POST['phone_B'], $_SESSION['user'], 'accept'));
+                // $roomDao->InsertRoom($_SESSION['user'], $_POST['phone_B']);
+                echo "Đã xóa lịch sử hội thoại! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+            }
+            else if (isset($_POST['delete']))
+            {
+                $friendDao->updateStatusFriend(new Friend($_SESSION['user'], $_GET['phone'], 'delete'));
+                $friendDao->updateStatusFriend(new Friend($_GET['phone'], $_SESSION['user'], 'delete'));
+                $l1 = $roomDao->GetAllRoomDetailByPhone($_SESSION['user']);
+                $l2 = $roomDao->GetAllRoomDetailByPhone($_GET['phone']);
+                $test = false;
+                foreach ($l1 as $r1)
+                {
+                    foreach ($l2 as $r2)
+                    {
+                        if ($r1->getId_room() == $r2->getId_room())
+                        {
+                            $roomDao->DeleteRoom($r1->getId_room());
+                            $test = true;
+                            break;
+                        }
+                    }
+                    if ($test = true) break;
+                }
+                echo "Đã hủy kết bạn! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+            }
+        }
     }
     else
     {
