@@ -186,7 +186,7 @@
 							$('#nav-tabContent').html(data);
 							scroll();
 							bindSendChat();
-							document.getElementById('content_'+idRoom).value=null;
+							
 							$('[autofocus]').focus();
 						}
 					});
@@ -209,6 +209,7 @@
 						data:{IdRoom:idRoom, Content:content},
 						success:function(){
 							LoadTabContent(idRoom);
+							document.getElementById('content_'+idRoom).value=null;
 						}
 					})
 					// end send click event
