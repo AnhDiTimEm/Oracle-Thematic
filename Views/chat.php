@@ -146,11 +146,10 @@
 			var id="";
 			$(document).ready(function(){
 				updateData();
+				updateStatusInChat();
+				LoadTabContent(id);
 				scroll();
 				bindSendChat();
-				updateStatusInChat();
-				scroll();
-				LoadTabContent(id);
 				setInterval(function(){
 					updateData(),
 					updateStatusInChat()
@@ -187,11 +186,6 @@
 							$('#nav-tabContent').html(data);
 							scroll();
 							bindSendChat();
-							var els = document.getElementsByName('content');
-				//scrollToBottom(document.getElementsByName('content'));
-				for(var i = 0 ; i<els.length;i++){
-					scrollToBottom(els[i]);
-				}
 						}
 					});
 				}
@@ -214,7 +208,7 @@
 						success:function(){
 							LoadTabContent(idRoom);
 							document.getElementById('content_'+idRoom).value=null;
-							document.getElementById('content_'+id).focus();
+							document.getElementById('content_'+idRoom).focus();
 						}
 					})
 					// end send click event
@@ -233,11 +227,6 @@
 					})
 					//end enter event
 					scroll();
-					var els = document.getElementsByName('content');
-				//scrollToBottom(document.getElementsByName('content'));
-				for(var i = 0 ; i<els.length;i++){
-					scrollToBottom(els[i]);
-				}
 				}
 				 //end bind send chat
 				
