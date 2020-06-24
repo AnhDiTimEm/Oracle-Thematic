@@ -147,10 +147,10 @@
 			$(document).ready(function(){
 				updateData();
 				scroll();
-				bindSendChat()
+				bindSendChat();
 				updateStatusInChat();
 				scroll();
-				LoadTabContent();
+				LoadTabContent(id);
 				setInterval(function(){
 					updateData(),
 					updateStatusInChat()
@@ -177,15 +177,21 @@
 					})
 				}
 				// load Mess Content
-				function LoadTabContent(){
+				function LoadTabContent(id){
 					
 					$.ajax({
 						url:"Views/showmess_ajax.php",
 						method:"POST",
+						data:{id:id},
 						success:function(data){
 							$('#nav-tabContent').html(data);
-							bindSendChat();
 							scroll();
+							bindSendChat();
+							var els = document.getElementsByName('content');
+				//scrollToBottom(document.getElementsByName('content'));
+				for(var i = 0 ; i<els.length;i++){
+					scrollToBottom(els[i]);
+				}
 						}
 					});
 				}
@@ -206,7 +212,7 @@
 						method:"POST",
 						data:{IdRoom:idRoom, Content:content},
 						success:function(){
-							LoadTabContent();
+							LoadTabContent(idRoom);
 							document.getElementById('content_'+idRoom).value=null;
 							document.getElementById('content_'+id).focus();
 						}
@@ -226,7 +232,12 @@
 						}
 					})
 					//end enter event
-
+					scroll();
+					var els = document.getElementsByName('content');
+				//scrollToBottom(document.getElementsByName('content'));
+				for(var i = 0 ; i<els.length;i++){
+					scrollToBottom(els[i]);
+				}
 				}
 				 //end bind send chat
 				

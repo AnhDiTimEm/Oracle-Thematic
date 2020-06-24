@@ -16,7 +16,7 @@
     else if(isset($_GET['signout'])){
         $dao = new UserDao();
         $dao->UpdateStatusUser($_SESSION['user'], 'offline');
-        session_destroy();
+        session_unset();
         header("Location:?signin");
     }
     else{

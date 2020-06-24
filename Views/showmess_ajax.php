@@ -16,6 +16,7 @@ if( $_SESSION['user'] != null){
     $allRoom = $roomDao->GetAllRoomByPhone($_SESSION['user']);
     $listNotificationForRequest = $friendDao->GetNotificationForRequest($_SESSION['user']);
     $active=" active show";
+    $id_RoomActive = $_POST['id'];
     // echo'<div class="tab-content" id="nav-tabContent">';
     foreach ($allRoom as $key) 
     {
@@ -24,6 +25,12 @@ if( $_SESSION['user'] != null){
         $allMess = $roomDao->GetAllMessByRoom($key);
         $headerName="";
         $avatar="";
+        if($key==$id_RoomActive || $id_RoomActive==""){
+            $active=" active show";
+        }
+        else{
+            $active="";
+        }
         $status="";
         $isAdminPhone="";
         if($typeRoom=="friend"){
@@ -48,7 +55,6 @@ if( $_SESSION['user'] != null){
             $headerName="Group code: ".$key;
         }
         require SITE_ROOT."/Views/layout/chat-active.php";
-        $active="";
     }
     echo '
     <div class="babble tab-pane fade" id="list-request-1122334455" role="tabpanel" aria-labelledby="list-request-list">
