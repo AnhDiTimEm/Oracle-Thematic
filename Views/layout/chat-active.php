@@ -13,7 +13,7 @@ else if($status=="online"){
             <div class="container">
                 <div class="col-md-12">
                     <div class="inside">
-                        <a href="#"><img class="avatar-md" src="<?php echo $avatar;?>" data-toggle="tooltip" data-placement="top" title="Lean" alt="avatar"></a>
+                        <a href="#"><img class="avatar-md" src="<?php echo $avatar;?>" data-toggle="tooltip" data-placement="top" title="<?php echo $headerName?>" alt="avatar"></a>
                         <div class="status">
                             <i class="material-icons <?php if($status=="offline"){echo'offline';}else{echo'online';}?>">fiber_manual_record</i>
                         </div>
@@ -34,18 +34,24 @@ else if($status=="online"){
                                 <hr> -->
                                 <?php
                                 // $isAdminPhone=$friend->getPhone();
-                                    if($friend_Phone!="1122334455" && $friend_Phone!="2233445566")
-                                    if($typeRoom=="group"){
+                                    if($friend_Phone != "1122334455" && $friend_Phone != "2233445566")
+                                    if($typeRoom=="group")
+                                    {
                                     echo'
-                                        <button class="dropdown-item"><i class="material-icons">person_add</i>Add Contact</button>
-                                        <button class="dropdown-item"><i class="material-icons">clear</i>Clear History</button>
-                                        <button class="dropdown-item"><i class="material-icons">exit_to_app</i>Leave Group</button>
+                                        <form action="" method="post">
+                                            <button class="dropdown-item"><i class="material-icons">person_add</i>Add Contact</button>
+                                            <button class="dropdown-item"><i class="material-icons">clear</i>Clear History</button>
+                                            <button class="dropdown-item"><i class="material-icons">exit_to_app</i>Leave Group</button>
+                                        </form>
                                         ';
                                     }
-                                    else if($typeRoom=="friend"){
+                                    else if($typeRoom=="friend")
+                                    {
                                         echo'
-                                        <button class="dropdown-item"><i class="material-icons">clear</i>Clear History</button>
-                                        <button class="dropdown-item"><i class="material-icons">delete</i>Delete Contact</button>
+                                        <form action="?chatpage=1&friend=action&phone='.$headerName.'" method="post">
+                                            <button type="submit" name="clear-history" class="dropdown-item"><i class="material-icons">clear</i>Clear History</button>
+                                            <button type="submit" name="delete" class="dropdown-item"><i class="material-icons">delete</i>Delete Contact</button>
+                                        </form>
                                         ';
                                     }
                                 ?>

@@ -12,7 +12,8 @@ $friendDao = new FriendDao();
 
 session_start();
 
-if( $_SESSION['user'] != null){
+if( $_SESSION['user'] != null)
+{
     $allRoom = $roomDao->GetAllRoomByPhone($_SESSION['user']);
     $listNotificationForRequest = $friendDao->GetNotificationForRequest($_SESSION['user']);
     $active=" active show";

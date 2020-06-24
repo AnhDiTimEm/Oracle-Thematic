@@ -95,22 +95,23 @@
                 }
             }
         }
-        else if ($_GET['friend'] == 'request')
+        else if ($_GET['friend'] == 'action')
         {
-            if (isset($_POST['accept']))
+            if (isset($_POST['clear-history']))
             {
                 $friendDao->updateStatusFriend(new Friend($_SESSION['user'], $_POST['phone_B'], 'accept'));
                 $friendDao->updateStatusFriend(new Friend($_POST['phone_B'], $_SESSION['user'], 'accept'));
                 $roomDao->InsertRoom($_SESSION['user'], $_POST['phone_B']);
                 echo "Đã chấp nhận kết bạn! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
             }
-            else if (isset($_POST['cancel']))
+            else if (isset($_POST['delete']))
             {
                 $friendDao->updateStatusFriend(new Friend($_SESSION['user'], $_POST['phone_B'], 'delete'));
                 $friendDao->updateStatusFriend(new Friend($_POST['phone_B'], $_SESSION['user'], 'delete'));
                 echo "Đã hủy lời mời kết bạn! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
             }
         }
+        else if ()
     }
     else
     {
