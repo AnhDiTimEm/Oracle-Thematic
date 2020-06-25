@@ -1,16 +1,16 @@
 <div id="discussions" class="tab-pane fade active show">
 	<div class="search">
 		<form class="form-inline position-relative">
-			<input type="search" class="form-control" id="conversations" placeholder="Search for conversations...">
+			<input type="search" class="form-control" id="conversations" placeholder="Search for conversation....." onfocusout="this.value=''">
 			<button type="button" class="btn btn-link loop"><i class="material-icons">search</i></button>
 		</form>
 		<button class="btn create" data-toggle="modal" data-target="#startnewchat"><i class="material-icons">create</i></button>
 	</div>
-	<div class="list-group sort">
+	<!-- <div class="list-group sort">
 		<button class="btn filterDiscussionsBtn active show" data-toggle="list" data-filter="all">All</button>
 		<button class="btn filterDiscussionsBtn" data-toggle="list" data-filter="read">Read</button>
 		<button class="btn filterDiscussionsBtn" data-toggle="list" data-filter="unread">Unread</button>
-	</div>						
+	</div>						 -->
 	<div class="discussions">
 		<h1>Discussions</h1>
 		<div id="showChatRoom"></div>

@@ -153,8 +153,10 @@
 
 				
 				setInterval(function(){
-					updateData(),
-					updateStatusInChat()
+					if(document.getElementById('people').value=="" && document.getElementById('conversations').value==""){
+					updateData();
+					updateStatusInChat();
+					}
 					//scroll()
 				},1000);
 

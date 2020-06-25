@@ -1,16 +1,16 @@
 <div class="tab-pane fade" id="members">
 	<div class="search">
 		<form class="form-inline position-relative">
-			<input type="search" class="form-control" id="people" placeholder="Search for people...">
+			<input type="search" class="form-control" id="people" placeholder="Search Friend..." onfocusout="this.value=''">
 			<button type="button" class="btn btn-link loop"><i class="material-icons">search</i></button>
 		</form>
 		<button class="btn create" data-toggle="modal" data-target="#exampleModalCenter"><i class="material-icons">person_add</i></button>
 	</div>
-	<div class="list-group sort">
+	<!-- <div class="list-group sort">
 		<button class="btn filterMembersBtn active show" data-toggle="list" data-filter="all">All</button>
 		<button class="btn filterMembersBtn" data-toggle="list" data-filter="online">Online</button>
 		<button class="btn filterMembersBtn" data-toggle="list" data-filter="offline">Offline</button>
-	</div>						
+	</div>						 -->
 	<div class="contacts">
 		<h1>Contacts</h1>
 		<div id="ajax_contacts"></div>
