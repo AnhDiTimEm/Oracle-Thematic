@@ -59,15 +59,16 @@ if ($_SESSION['user'] != null)
                 </div>';
             }
             else if($typeRoom == "group"){
+                $name = $roomDao->GetPassWordOfRoom($key);
                 echo'
                 <a href="#list-chat-'.$key.'" class="filterDiscussions all unread single" id="list-chat-list" data-toggle="list" role="tab">
-                    <img class="avatar-md" src="./Resources/images/group.jpg" data-toggle="tooltip" data-placement="top" title="'.$friend->getName().'" alt="avatar">
+                    <img class="avatar-md" src="./Resources/images/group.jpg" data-toggle="tooltip" data-placement="top" title="'.$name.'" alt="avatar">
                     <div class="status">
                         <i class="material-icons online">fiber_manual_record</i>
                     </div>';
                 echo'
                 <div class="data">
-                    <h5>'.'Group Code: '.$key.'</h5>
+                    <h5>'.'Group : '.$name.'</h5>
                     <span>Sun</span>
                     <p>How can i improve my chances of getting a deposit?</p>
                 </div>';

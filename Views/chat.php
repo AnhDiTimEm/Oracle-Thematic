@@ -150,6 +150,8 @@
 				LoadTabContent(id);
 				bindSendChat();
 				updateData();
+
+				
 				setInterval(function(){
 					updateData(),
 					updateStatusInChat()

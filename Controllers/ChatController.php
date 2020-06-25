@@ -118,6 +118,11 @@
                 // $friendDao->updateStatusFriend(new Friend($_SESSION['user'], $_POST['phone_B'], 'accept'));
                 // $friendDao->updateStatusFriend(new Friend($_POST['phone_B'], $_SESSION['user'], 'accept'));
                 // $roomDao->InsertRoom($_SESSION['user'], $_POST['phone_B']);
+                if(isset($_GET['room'])){
+                    if($_GET['room']!=""){
+
+                    }
+                }
                 echo "Đã xóa lịch sử hội thoại! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
             }
             else if (isset($_POST['delete']))
@@ -140,8 +145,42 @@
                     }
                     if ($test = true) break;
                 }
-                echo "Đã hủy kết bạn! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+                echo "Unfriend Success!! <a href='javascript: history.go(-1)'>Back</a>";
             }
+        }
+    }
+    else if(isset($_GET['create'])){
+        if(isset($_POST['password'])){
+            $roomDao->CreateGroupChat($_SESSION['user'],$_POST['password']);
+            echo " Create Group Chat Success <a href='javascript: history.go(-1)'>Go To Chat</a>";
+        }
+    }
+    else if(isset($_GET['addtogroup'])){
+        if(isset($_POST['sel1'])){
+            $addPhone= $_POST['sel1'];
+            $group = $_GET['addtogroup'];
+            $memberList = $roomDao->GetAllMemberOfRoom($group);
+            $fl = true;
+            foreach($memberList as $mem){
+                if($mem==$addPhone){
+                    $fl=false;
+                break;
+                }
+            }
+            if($fl){
+                if($roomDao->InsertMemberToGroupChat($addPhone,$group)){
+                    echo "Success! <a href='javascript: history.go(-1)'>Back</a>";
+                }
+                else{
+                    echo " Fail to Add Member<a href='javascript: history.go(-1)'>Back</a>";
+                }
+            }
+            else{
+                echo " This User has in this group already <a href='javascript: history.go(-1)'>Back</a>";
+            }
+        }
+        else{
+            echo " Fail to Add Member <a href='javascript: history.go(-1)'>Back</a>";
         }
     }
     else

@@ -19,7 +19,6 @@ if( $_SESSION['user'] != null)
     $active=" active show";
     $flagFocus = '1';
     $id_RoomActive = $_POST['id'];
-    
     $index =0;
 
     foreach ($allRoom as $key) 
@@ -56,7 +55,7 @@ if( $_SESSION['user'] != null)
         else if($typeRoom=="group"){
             $status="online";
             $avatar="./Resources/images/group.jpg";
-            $headerName="Group code: ".$key;
+            $headerName=$roomDao->GetPassWordOfRoom($key);
         }
         require SITE_ROOT."/Views/layout/chat-active.php";
         //$active="";

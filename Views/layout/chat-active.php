@@ -34,21 +34,32 @@ else if($status=="online"){
                                 <hr> -->
                                 <?php
                                 // $isAdminPhone=$friend->getPhone();
-                                    if($friend_Phone != "1122334455" && $friend_Phone != "2233445566")
                                     if($typeRoom=="group")
                                     {
+                                        $allFriend= $friendDao->GetAllFriendByPhone($_SESSION['user']);
                                     echo'
-                                        <form action="" method="post">
-                                            <button class="dropdown-item"><i class="material-icons">person_add</i>Add Contact</button>
-                                            <button class="dropdown-item"><i class="material-icons">clear</i>Clear History</button>
-                                            <button class="dropdown-item"><i class="material-icons">exit_to_app</i>Leave Group</button>
+                                        <form action="?chatpage=1&addtogroup='.$key.'" method="POST">
+                                            <lable for="se1"><span class="material-icons">person_add</span>Add Contact</lable>
+                                                <select style="width:10rem" id="sel1" name="sel1">';
+                                            
+                                                foreach($allFriend as $myfriend){
+                                                    echo'<option value="'.$myfriend->getPhone().'">'.$myfriend->getName().'</option>';
+                                                }
+                                                    // <option>1</option>
+                                                    // <option>2</option>
+                                                    // <option>3</option>
+                                                    // <option>4</option>
+                                               echo' </select>
+                                                <input type="submit" value="Add">
                                         </form>
+                                        <button class="dropdown-item"><i class="material-icons">clear</i>Clear History</button>
+                                        <button class="dropdown-item"><i class="material-icons">exit_to_app</i>Leave Group</button>
                                         ';
                                     }
-                                    else if($typeRoom=="friend")
+                                    else if($typeRoom=="friend" && $friend_Phone != "1122334455" && $friend_Phone != "2233445566")
                                     {
                                         echo'
-                                        <form action="?chatpage=1&friend=action&phone='.$friend_Phone.'" method="post">
+                                        <form action="?chatpage=1&friend=action&phone='.$friend_Phone.'"&room='.$key.' method="post">
                                             <button type="submit" name="clear-history" class="dropdown-item"><i class="material-icons">clear</i>Clear History</button>
                                             <button type="submit" name="delete" class="dropdown-item"><i class="material-icons">delete</i>Delete Contact</button>
                                         </form>

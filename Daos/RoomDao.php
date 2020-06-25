@@ -46,7 +46,24 @@
             $this->RunQuery("INSERT INTO ROOM_DETAIL(ID_ROOM, PHONE_USER) VALUES ('{$Id}', '{$Phone_A}')");
             $this->RunQuery("INSERT INTO ROOM_DETAIL(ID_ROOM, PHONE_USER) VALUES ('{$Id}', '{$Phone_B}')");
         }
+        public function InsertMemberToGroupChat($memberPhone,$room){
+            return $this->RunQuery("INSERT INTO ROOM_DETAIL(ID_ROOM, PHONE_USER) VALUES ('{$room}', '{$memberPhone}')");
+        }
 
+        public function CreateGroupChat($admin,$password){
+            $input = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+            $input_length = strlen($input);
+            $random_string = '';
+            for($i = 0; $i < 20; $i++)
+            {
+                $random_character = $input[mt_rand(0, $input_length - 1)];
+                $random_string .= $random_character;
+            }
+            $Id = $random_string;
+            $this->RunQuery("INSERT INTO ROOM(ID_ROOM, PASSWORD, TYPE) VALUES ('{$Id}','{$password}', 'group')");
+            $this->RunQuery("INSERT INTO ROOM_DETAIL(ID_ROOM, PHONE_USER) VALUES ('{$Id}', '{$admin}')");
+        }
         public function GetAllRoomDetailByPhone($phone)
         {
             $result = $this->RunQuery("SELECT * FROM ROOM_DETAIL Where PHONE_USER='{$phone}'");
@@ -108,6 +125,18 @@
             }
             return null;
         }
+        //get Password of Room as Name of Group chat
+
+        public function GetPassWordOfRoom($id_Room){
+            $result = $this->RunQuery("SELECT * FROM ROOM WHERE ID_ROOM ='{$id_Room}'");
+
+            while($row = oci_fetch_assoc($result))
+            {
+                return $row['PASSWORD'];
+            }
+            return null;
+        }
+
 
         // get tất cả các thành viên trong chat room
         public function GetAllMemberOfRoom($id_Room){
@@ -124,5 +153,8 @@
             return $memberList;
         }
 
+        public function ClearHistoryRoom($id_Room){
+
+        }
 	}
 ?>
