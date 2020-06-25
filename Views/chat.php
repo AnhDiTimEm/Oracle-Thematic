@@ -129,6 +129,7 @@
 		<!-- <script src="./asset/js/swipe.min.js"></script> -->
 		<script src="./asset/js/bootstrap.min.js"></script>
 		<script>
+		
 			function scrollToBottom(el) { el.scrollTop = el.scrollHeight; }
 			function scroll(){
 				var els = document.getElementsByName('content');
@@ -150,15 +151,66 @@
 				LoadTabContent(id);
 				bindSendChat();
 				updateData();
-
+				// GetPageActive();
 				
 				setInterval(function(){
 					if(document.getElementById('people').value=="" && document.getElementById('conversations').value==""){
 					updateData();
 					updateStatusInChat();
 					}
+					// if(document.getElementsByClassName("babble tab-pane fade active show")[0].id !=null){
+					// 	var IDD = document.getElementsByClassName("babble tab-pane fade active show")[0].id;
+					// 	var ID="";
+					// 	if(IDD.search("list-chat")!=-1){
+					// 		ID=IDD.substr(10,IDD.length);
+					// 	}
+					// 	else{
+					// 		ID=IDD.substr(11,IDD.length);
+					// 	}
+					// 	//var ID=IDD.substr(10,IDD.length);
+					// 	//alert(ID);
+					// 	LoadTabContent(ID);
+					// }
 					//scroll()
 				},1000);
+				// function GetPageActive(){
+				// 	if(document.getElementsByClassName("babble tab-pane fade active show")[0]!=null){
+				// 		if(document.getElementsByClassName("babble tab-pane fade active show")[0].id !=null){
+				// 		var IDD = document.getElementsByClassName("babble tab-pane fade active show")[0].id;
+				// 		var ID="";
+				// 		if(IDD.search("list-chat")!=-1){
+				// 			ID=IDD.substr(10,IDD.length);
+				// 		}
+				// 		else{
+				// 			ID=IDD.substr(11,IDD.length);
+				// 		}
+				// 		sessionStorage.removeItem("activeroom");
+				// 		sessionStorage.setItem("activeroom",ID);
+				// 	}
+				// 	}
+				// }
+				// setInterval(function(){
+				// 	GetPageActive()
+				// },1000);
+				setInterval(function(){
+					if(document.getElementsByClassName("babble tab-pane fade active show")[0]!=null){
+						if(document.getElementsByClassName("babble tab-pane fade active show")[0].id !=null){
+						var IDD = document.getElementsByClassName("babble tab-pane fade active show")[0].id;
+						var ID="";
+						if(IDD.search("list-chat")!=-1){
+							ID=IDD.substr(10,IDD.length);
+						}
+						else{
+							ID=IDD.substr(11,IDD.length);
+						}
+						if(document.getElementById("content_"+ID).value==""){
+							LoadTabContent(ID);
+						}
+						// sessionStorage.removeItem("activeroom");
+						// sessionStorage.setItem("activeroom",ID);
+					}
+					}
+				},4000);
 
 				//ajax status in Contact
 				function updateData(){
@@ -182,7 +234,6 @@
 				}
 				// load Mess Content
 				function LoadTabContent(id){
-					
 					$.ajax({
 						url:"Views/showmess_ajax.php",
 						method:"POST",
@@ -191,6 +242,7 @@
 							$('#nav-tabContent').html(data);
 							bindSendChat();
 							$('[autofocus]').focus();
+							//alert(sessionStorage.getItem("Text"));
 						}
 					});
 				}
@@ -205,6 +257,7 @@
 					//alert(idRoom);
 					//alert(document.getElementById('content_chat'+idRoom).value);
 					var content = document.getElementById('content_'+idRoom).value;
+					document.getElementById('content_'+idRoom).value="";
 
 					$.ajax({
 						url:"Views/sendchat_ajax.php",
@@ -212,7 +265,6 @@
 						data:{IdRoom:idRoom, Content:content},
 						success:function(){
 							LoadTabContent(idRoom);
-							document.getElementById('content_'+idRoom).value=null;
 						}
 					})
 					// end send click event

@@ -136,12 +136,5 @@ if( $_SESSION['user'] != null)
         {
             require SITE_ROOT."/Views/layout/chat-request.php";
         }
-
-    // echo'</div>';
-    // echo"wtf";
-
-
-    ///////////////////////
-    
 }
 ?>

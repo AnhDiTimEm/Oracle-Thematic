@@ -192,7 +192,7 @@ else if($status=="online"){
     </div>
     <!-- End of Chat -->
     <!-- Start of Call -->
-    <div class="call" id="call2">
+    <!-- <div class="call" id="call2">
         <div class="content">
             <div class="container">
                 <div class="col-md-12">
@@ -215,6 +215,6 @@ else if($status=="online"){
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- End of Call -->
 </div>
