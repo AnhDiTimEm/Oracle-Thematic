@@ -19,13 +19,9 @@ if( $_SESSION['user'] != null)
     $active=" active show";
     $flagFocus = '1';
     $id_RoomActive = $_POST['id'];
-    // if($id_RoomActive==""){
-    //     echo"null";
-    // }
-    // else{   
-    //     echo "<div>".$id_RoomActive."</div>";
-    // }
-    // echo'<div class="tab-content" id="nav-tabContent">';
+    
+    $index =0;
+
     foreach ($allRoom as $key) 
     {
         $typeRoom = $roomDao->GetTypeOfRoom($key);
@@ -33,7 +29,7 @@ if( $_SESSION['user'] != null)
         $allMess = $roomDao->GetAllMessByRoom($key);
         $headerName="";
         $avatar="";
-        if($key==$id_RoomActive || $id_RoomActive==""){
+        if($key==$id_RoomActive || ($id_RoomActive=="" && $index==0)){
             $active=" active show";
         }
         else{
@@ -64,6 +60,7 @@ if( $_SESSION['user'] != null)
         }
         require SITE_ROOT."/Views/layout/chat-active.php";
         //$active="";
+        $index++;
         $flagFocus='0';
     }
     echo '

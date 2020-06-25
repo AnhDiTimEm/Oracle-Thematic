@@ -143,16 +143,17 @@
 				{$("#chat"+$(this).attr("name")).hide(),$("#call"+$(this).attr("name")).show()});
 		</script>
 		<script>
-			var id="";
+		var id="";
+			//var id_active= document.getElementsByClassName("babble tab-pane fade active show")[0].id;
 			$(document).ready(function(){
-				updateData();
 				updateStatusInChat();
 				LoadTabContent(id);
-				scroll();
 				bindSendChat();
+				updateData();
 				setInterval(function(){
 					updateData(),
 					updateStatusInChat()
+					//scroll()
 				},1000);
 
 				//ajax status in Contact
@@ -184,9 +185,7 @@
 						data:{id:id},
 						success:function(data){
 							$('#nav-tabContent').html(data);
-							scroll();
 							bindSendChat();
-							
 							$('[autofocus]').focus();
 						}
 					});
@@ -226,15 +225,16 @@
 							$(string).click();
 						}
 					})
-					//end enter event
 					scroll();
+					//end enter event
 				}
 				 //end bind send chat
 				
-				// ajax c
 
 			});
-
+			function Scroll(){
+				scroll();
+			}
 		</script>
 	</body>
 </html>

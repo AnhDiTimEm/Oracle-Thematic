@@ -66,7 +66,7 @@ else if($status=="online"){
 
                             <?php if($allMess != null){?>
         <!-- div show discussion -->
-        <div class="content" name="content">
+        <div class="content" name="content" id="scroll_<?php echo $key?>" >
             <div class="container">
                 <div class="col-md-12">
                         <!-- load mess -->
@@ -169,12 +169,11 @@ else if($status=="online"){
                 <div class="bottom">
                     <form class="position-relative w-100">
                         <textarea class="form-control" placeholder="Start typing for reply..." rows="1" id='content_<?php echo $key?>' name ="content_chat" <?php if($flagFocus=='1' || $key==$id_RoomActive){echo"autofocus";}?>></textarea>
-                        <button class="btn emoticons"><i class="material-icons">insert_emoticon</i></button>
+                        <!-- <button class="btn emoticons"><i class="material-icons">insert_emoticon</i></button> -->
                         <button type="button" name="send_chat"class="btn send" id="<?php echo $key?>"><i class="material-icons">send</i></button>
                     </form>
                     <label>
-                        <input type="file">
-                        <span class="btn attach d-sm-block d-none"><i class="material-icons">attach_file</i></span>
+                       <span class="btn attach d-sm-block d-none" class="button" onclick="Scroll()"><i class="material-icons">keyboard_arrow_down</i></span>
                     </label> 
                 </div>
             </div>
