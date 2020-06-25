@@ -22,8 +22,13 @@ if ($_SESSION['user'] != null)
             $lastMemChat="";
             if($allMess!=null){
                $lastContent= end($allMess)->getContent();
-               $lastmem = $dao->getUSerByPhone(end($allMess)->getPhone_user());
-               $lastMemChat=$lastmem->getName();
+               if(end($allMess)->getPhone_user() == $_SESSION['user']){
+                        $lastMemChat="You";
+               }
+               else{
+                    $lastmem = $dao->getUSerByPhone(end($allMess)->getPhone_user());
+                    $lastMemChat=$lastmem->getName();
+               }
             }
             if($typeRoom =="friend"){
                 foreach($memberList as $m){
@@ -130,7 +135,7 @@ if ($_SESSION['user'] != null)
                         
                         echo'
                         <span>'.$TimeShow.'</span>
-                        <p>'.$lastMemChat.' : '.$lastContent.'</p>';
+                        <small style="display:block">'.$lastMemChat.' : '.$lastContent.'</small>';
                     }
                     else{
                         echo'
@@ -217,7 +222,7 @@ if ($_SESSION['user'] != null)
                         
                         echo'
                         <span>'.$TimeShow.'</span>
-                        <p>'.$lastMemChat.' : '.$lastContent.'</p>';
+                        <small style="display:block">'.$lastMemChat.' : '.$lastContent.'</small>';
                     }
                     else{
                         echo'
