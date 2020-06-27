@@ -189,13 +189,12 @@
 						else{
 							ID=IDD.substr(11,IDD.length);
 						}
-						if(document.getElementById('people').value=="" && document.getElementById('conversations').value=="")
 						if(document.getElementById("content_"+ID).value==""){
 							LoadTabContent(ID);
 						}
 					}
 					}
-				},5000);
+				},7000);
 
 				//ajax status in Contact
 				function updateData(){
@@ -227,7 +226,6 @@
 							$('#nav-tabContent').html(data);
 							bindSendChat();
 							$('[autofocus]').focus();
-							//$('[autofocus]').enable();
 							//alert(sessionStorage.getItem("Text"));
 							// if(document.getElementById("content_"+id)!=null){
 							// 	if(sessionStorage.getItem("text")!=null)

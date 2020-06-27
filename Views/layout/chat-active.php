@@ -75,7 +75,9 @@ else if($status=="online"){
             </div>
         </div>
 
-                            <?php if($allMess != null && $key==$id_RoomActive){?>
+                            <?php if($allMess != null){
+                                    // if($key==$id_RoomActive){
+                                ?>
         <!-- div show discussion -->
         <div class="content" name="content" id="scroll_<?php echo $key?>" >
             <div class="container">
@@ -160,7 +162,23 @@ else if($status=="online"){
             </div>    
         </div>
 
-                        <?php } else if($allMess==null && $key==$id_RoomActive){?>
+                        <?php 
+                                    // }
+                                    // else if($key!=$id_RoomActive){ ?>
+                                                <!-- <div class="content empty">
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="no-messages">
+                        <i class="material-icons md-48">forum</i>
+                        <p>Loading....</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+                                    <?php
+                                    
+                                //}
+                    } else{?>
         <!-- div hiển thị nếu chưa có tin nhắn -->
         <div class="content empty">
             <div class="container">
@@ -172,22 +190,7 @@ else if($status=="online"){
                 </div>
             </div>
         </div>
-                        <?php }
-                        else{
-                            ?>
-        <div class="content empty">
-            <div class="container">
-                <div class="col-md-12">
-                    <div class="no-messages">
-                        <i class="material-icons md-48">forum</i>
-                        <p>Loading.....</p>
-                    </div>
-                </div>
-            </div>
-        </div>                    
-                            <?php
-                        }
-                        ?>
+                        <?php }?>
 
         <!-- thanh Icon , input Text và Send -->
         <div class="container">
