@@ -94,7 +94,7 @@ else if($status=="online"){
                                 if($mess->getPhone_user()!=$_SESSION['user']){
                                     echo'
                                     <div class="message">
-                                        <img class="avatar-md" src="'.$sender->getAvatar().'" data-toggle="tooltip" data-placement="top" title="'.$sender->getName().'" alt="avatar">
+                                        <img class="avatar-md" src="'.$sender->getAvatar().'" data-toggle="tooltip" data-placement="top" title="'.$mess->getTime().'" alt="avatar">
                                         <div class="text-main">
                                             <div class="text-group">
                                                 <div class="text">

@@ -14,10 +14,10 @@
                     <img class="avatar-xl" src="<?php echo $user->getAvatar(); ?>" alt="image">
                     <label>
                         <input type="file">
-                        <button data-toggle="modal" data-target="#uploadAvatar" class="btn button">Upload avatar</button>
+                        <button data-toggle="modal" data-target="#uploadAvatar" class="btn button">Change Avatar</button>
                     </label>
                 </div>
-                <p>For best results, use an image at least 256px by 256px in either .jpg or .png format!</p>
+                <p>Choose the avatar you like most. it will be your avatar!</p>
             </div>
             <form action="?chatpage=1&account=update" method="post">
                 <!-- <div class="parent">
