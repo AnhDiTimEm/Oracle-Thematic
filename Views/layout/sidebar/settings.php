@@ -11,11 +11,14 @@
                     <h3>Friends</h3>
                 </div>
                 <div class="item">
-                    <h2>5</h2>
+                    <h2><?php $c=0;foreach($allRoom as $r){
+                        if($roomDao->GetTypeOfRoom($r)=="group")$c++;
+                        };
+                        echo $c;?></h2>
                     <h3>Groupchats</h3>
                 </div>
                 <div class="item">
-                    <h2>234</h2>
+                    <h2><?php echo count($allRoom);?></h2>
                     <h3>Messages</h3>
                 </div>
             </div>

@@ -14,7 +14,8 @@
         {
             $avatar = './Resources/images/avatar'.$_GET['num'].'.jpg';
             $dao->UpdateAvatarUser($_SESSION['user'], $avatar);
-            echo "Cập nhật ảnh đại diện thành công! <a href='javascript: history.go(-1)'>Trở lại</a>";
+            //echo "Cập nhật ảnh đại diện thành công! <a href='javascript: history.go(-1)'>Trở lại</a>";
+            echo "Update your avatar success! <a href='javascript: history.go(-1)'>Go back</a>";
         }
         else if ($_GET['account'] === 'update')
         {
@@ -40,7 +41,8 @@
             $check = false;
             if ($phone_A == $phone_B) 
             {
-                echo "Không thể tự kết bạn chính mình! <a href='javascript: history.go(-1)'>Trở lại</a>";
+                //echo "Không thể tự kết bạn chính mình! <a href='javascript: history.go(-1)'>Trở lại</a>";
+                echo "You can not add your self as friend! <a href='javascript: history.go(-1)'>Go back</a>";
             }
             else
             {
@@ -56,26 +58,30 @@
                             {
                                 if ($friend->getStatus() == 'accept')
                                 {
-                                    echo "Đã có trong danh sách bạn bè, không cần thêm bạn lại! <a href='javascript: history.go(-1)'>Trở lại</a>";
+                                    //echo "Đã có trong danh sách bạn bè, không cần thêm bạn lại! <a href='javascript: history.go(-1)'>Trở lại</a>";
+                                    echo "This user has your friend already! <a href='javascript: history.go(-1)'>Go back</a>";
                                     $check = true;
                                 }
                                 else if ($friend->getStatus() == 'waitting')
                                 {
-                                    echo "Đã gửi lời mời rồi, chờ đối phương trả lời! <a href='javascript: history.go(-1)'>Trở lại</a>";
+                                    //echo "Đã gửi lời mời rồi, chờ đối phương trả lời! <a href='javascript: history.go(-1)'>Trở lại</a>";
+                                    echo "You have sent request to this user alrady, just waiting! <a href='javascript: history.go(-1)'>Go back</a>";
                                     $check = true;
                                 }
                                 else if ($friend->getStatus() == 'request' || $friend->getStatus() == 'seen')
                                 {   
                                     $friendDao->updateStatusFriend(new Friend($phone_A, $phone_B, 'accept'));
                                     $friendDao->updateStatusFriend(new Friend($phone_B, $phone_A, 'accept'));
-                                    echo "Đã chấp nhận kết bạn! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+                                    //echo "Đã chấp nhận kết bạn! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+                                    echo "Make friend success! <a href='javascript: history.go(-1)'>Go back</a>";
                                     $check = true;
                                 }
                                 else if ($friend->getStatus() == 'delete')
                                 {
                                     $friendDao->updateStatusFriend(new Friend($phone_A, $phone_B, 'waitting'));
                                     $friendDao->updateStatusFriend(new Friend($phone_B, $phone_A, 'request'));
-                                    echo "Gửi lời mời thành công! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+                                    //echo "Gửi lời mời thành công! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+                                    echo "Send request success! <a href='javascript: history.go(-1)'>Go back</a>";
                                     $check = true;
                                 }
                             }
@@ -83,14 +89,16 @@
                         if ($check == false)
                         {
                             $friendDao->AddFriend(new Friend($phone_A, $phone_B, ' '));
-                            echo "Gửi lời mời thành công! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+                            //echo "Gửi lời mời thành công! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+                            echo "Send request success! <a href='javascript: history.go(-1)'>Go back</a>";
                             $check = true;
                         }
                     }
                 }
                 if ($check == false)
                 {
-                    echo "Số điện thoại chưa được tạo tài khoản, không thể kết bạn! <a href='javascript: history.go(-1)'>Trở lại</a>";
+                    //echo "Số điện thoại chưa được tạo tài khoản, không thể kết bạn! <a href='javascript: history.go(-1)'>Trở lại</a>";
+                    echo "Ivalid phone number, cant send request! <a href='javascript: history.go(-1)'>Go back</a>";
                     $check = true;
                 }
             }
@@ -102,13 +110,15 @@
                 $friendDao->updateStatusFriend(new Friend($_SESSION['user'], $_POST['phone_B'], 'accept'));
                 $friendDao->updateStatusFriend(new Friend($_POST['phone_B'], $_SESSION['user'], 'accept'));
                 $roomDao->InsertRoom($_SESSION['user'], $_POST['phone_B']);
-                echo "Đã chấp nhận kết bạn! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+                //echo "Đã chấp nhận kết bạn! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+                echo "Make friend success! <a href='javascript: history.go(-1)'>Go back</a>";
             }
             else if (isset($_POST['cancel']))
             {
                 $friendDao->updateStatusFriend(new Friend($_SESSION['user'], $_POST['phone_B'], 'delete'));
                 $friendDao->updateStatusFriend(new Friend($_POST['phone_B'], $_SESSION['user'], 'delete'));
-                echo "Đã hủy lời mời kết bạn! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+                //echo "Đã hủy lời mời kết bạn! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+                echo "You just decline the friend request! <a href='javascript: history.go(-1)'>Go back</a>";
             }
         }
         else if ($_GET['friend'] == 'action')
@@ -123,7 +133,8 @@
 
                     }
                 }
-                echo "Đã xóa lịch sử hội thoại! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+                //echo "Đã xóa lịch sử hội thoại! <a href='javascript: history.go(-1)'>Trở về trang chủ</a>";
+                echo "History of this chat has been delete! <a href='javascript: history.go(-1)'>Go back</a>";
             }
             else if (isset($_POST['delete']))
             {
@@ -181,6 +192,18 @@
         }
         else{
             echo " Fail to Add Member <a href='javascript: history.go(-1)'>Back</a>";
+        }
+    }
+    else if(isset($_GET['group'])){
+        if(isset($_POST['clear-history'])){
+            echo "clear history";
+        }
+        else if(isset($_POST['leave-group'])){
+            $roomDao->LeaveGroup($_GET['group']);
+            echo "Leave group success! <a href='javascript: history.go(-1)'>Back</a>";
+        }
+        else{
+            header("Location:./Views/error.php");
         }
     }
     else

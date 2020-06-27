@@ -26,7 +26,7 @@ else if($status=="online"){
                         <!-- <button class="btn connect d-md-block d-none" name="1"><i class="material-icons md-30">phone_in_talk</i></button>
                         <button class="btn connect d-md-block d-none" name="1"><i class="material-icons md-36">videocam</i></button> -->
                         <!-- <button class="btn d-md-block d-none"><i class="material-icons md-30">info</i></button> -->
-                        <div class="dropdown">
+                        <div class="dropdown" id="more_<?php echo $key?>">
                             <button class="btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons md-30">more_vert</i></button>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <!-- <button class="dropdown-item connect" name="2"><i class="material-icons">phone_in_talk</i>Voice Call</button>
@@ -52,8 +52,10 @@ else if($status=="online"){
                                                echo' </select>
                                                 <input type="submit" value="Add">
                                         </form>
-                                        <button class="dropdown-item"><i class="material-icons">clear</i>Clear History</button>
-                                        <button class="dropdown-item"><i class="material-icons">exit_to_app</i>Leave Group</button>
+                                        <form action="?chatpage=1&group='.$key.'" method="POST">
+                                            <button type="submit" name="clear-history" class="dropdown-item" ><i class="material-icons">clear</i>Clear History</button>
+                                            <button type="submit" name="leave-group" class="dropdown-item"><i class="material-icons">exit_to_app</i>Leave Group</button>
+                                        </form>
                                         ';
                                     }
                                     else if($typeRoom=="friend" && $friend_Phone != "1122334455" && $friend_Phone != "2233445566")
@@ -182,7 +184,7 @@ else if($status=="online"){
         <!-- div hiển thị nếu chưa có tin nhắn -->
         <div class="content empty">
             <div class="container">
-                <div class="col-md-12">
+                <div class="col-md-12" id="show_<?php echo $key?>">
                     <div class="no-messages">
                         <i class="material-icons md-48">forum</i>
                         <p>Seems people are shy to start the chat. Break the ice send the first message.</p>

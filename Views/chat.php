@@ -173,6 +173,8 @@
 						}
 						// if(document.getElementById('people').value=="" && document.getElementById('conversations').value=="")
 						if(document.getElementById("content_"+ID).value==""){
+							var a = document.getElementById("more_"+ID);
+							if(!document.hasFocus())
 							LoadTabContent(ID);
 						}
 					}

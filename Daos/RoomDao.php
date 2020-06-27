@@ -156,5 +156,8 @@
         public function ClearHistoryRoom($id_Room){
 
         }
+        public function LeaveGroup($id_Room){
+            return $this->RunQuery("DELETE FROM ROOM_DETAIL WHERE ID_ROOM='{$id_Room}' AND PHONE_USER='{$_SESSION['user']}'");
+        }
 	}
 ?>
