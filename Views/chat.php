@@ -158,20 +158,6 @@
 					updateData();
 					updateStatusInChat();
 					}
-					// if(document.getElementsByClassName("babble tab-pane fade active show")[0].id !=null){
-					// 	var IDD = document.getElementsByClassName("babble tab-pane fade active show")[0].id;
-					// 	var ID="";
-					// 	if(IDD.search("list-chat")!=-1){
-					// 		ID=IDD.substr(10,IDD.length);
-					// 	}
-					// 	else{
-					// 		ID=IDD.substr(11,IDD.length);
-					// 	}
-					// 	//var ID=IDD.substr(10,IDD.length);
-					// 	//alert(ID);
-					// 	LoadTabContent(ID);
-					// }
-					//scroll()
 				},1000);
 				// function GetPageActive(){
 				// 	if(document.getElementsByClassName("babble tab-pane fade active show")[0]!=null){
@@ -206,11 +192,9 @@
 						if(document.getElementById("content_"+ID).value==""){
 							LoadTabContent(ID);
 						}
-						// sessionStorage.removeItem("activeroom");
-						// sessionStorage.setItem("activeroom",ID);
 					}
 					}
-				},4000);
+				},5000);
 
 				//ajax status in Contact
 				function updateData(){

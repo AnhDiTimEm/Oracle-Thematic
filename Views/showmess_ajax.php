@@ -57,6 +57,9 @@ if( $_SESSION['user'] != null)
             $avatar="./Resources/images/group.jpg";
             $headerName=$roomDao->GetPassWordOfRoom($key);
         }
+        // if($key== $id_RoomActive){
+        //     require SITE_ROOT."/Views/layout/chat-active.php";
+        // }
         require SITE_ROOT."/Views/layout/chat-active.php";
         //$active="";
         $index++;

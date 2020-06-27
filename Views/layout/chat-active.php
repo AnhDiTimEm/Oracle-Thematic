@@ -75,7 +75,7 @@ else if($status=="online"){
             </div>
         </div>
 
-                            <?php if($allMess != null){?>
+                            <?php if($allMess != null && $key==$id_RoomActive){?>
         <!-- div show discussion -->
         <div class="content" name="content" id="scroll_<?php echo $key?>" >
             <div class="container">
@@ -160,7 +160,7 @@ else if($status=="online"){
             </div>    
         </div>
 
-                        <?php } else {?>
+                        <?php } else if($allMess==null && $key==$id_RoomActive){?>
         <!-- div hiển thị nếu chưa có tin nhắn -->
         <div class="content empty">
             <div class="container">
@@ -172,7 +172,22 @@ else if($status=="online"){
                 </div>
             </div>
         </div>
-                        <?php }?>
+                        <?php }
+                        else{
+                            ?>
+        <div class="content empty">
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="no-messages">
+                        <i class="material-icons md-48">forum</i>
+                        <p>Loading.....</p>
+                    </div>
+                </div>
+            </div>
+        </div>                    
+                            <?php
+                        }
+                        ?>
 
         <!-- thanh Icon , input Text và Send -->
         <div class="container">
