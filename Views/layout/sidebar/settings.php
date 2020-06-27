@@ -7,7 +7,7 @@
             <span>Phone number: <?php echo $_SESSION['user']; ?></span>
             <div class="stats">
                 <div class="item">
-                    <h2>10</h2>
+                    <h2><?php echo count($friendDao->GetAllFriendByPhone($_SESSION['user']))?></h2>
                     <h3>Friends</h3>
                 </div>
                 <div class="item">

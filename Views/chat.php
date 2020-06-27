@@ -158,26 +158,8 @@
 					updateData();
 					updateStatusInChat();
 					}
-				},1000);
-				// function GetPageActive(){
-				// 	if(document.getElementsByClassName("babble tab-pane fade active show")[0]!=null){
-				// 		if(document.getElementsByClassName("babble tab-pane fade active show")[0].id !=null){
-				// 		var IDD = document.getElementsByClassName("babble tab-pane fade active show")[0].id;
-				// 		var ID="";
-				// 		if(IDD.search("list-chat")!=-1){
-				// 			ID=IDD.substr(10,IDD.length);
-				// 		}
-				// 		else{
-				// 			ID=IDD.substr(11,IDD.length);
-				// 		}
-				// 		sessionStorage.removeItem("activeroom");
-				// 		sessionStorage.setItem("activeroom",ID);
-				// 	}
-				// 	}
-				// }
-				// setInterval(function(){
-				// 	GetPageActive()
-				// },1000);
+				},4000);
+
 				setInterval(function loadtab(){
 					if(document.getElementsByClassName("babble tab-pane fade active show")[0]!=null){
 						if(document.getElementsByClassName("babble tab-pane fade active show")[0].id !=null){
@@ -189,12 +171,13 @@
 						else{
 							ID=IDD.substr(11,IDD.length);
 						}
+						// if(document.getElementById('people').value=="" && document.getElementById('conversations').value=="")
 						if(document.getElementById("content_"+ID).value==""){
 							LoadTabContent(ID);
 						}
 					}
 					}
-				},7000);
+				},5000);
 
 				//ajax status in Contact
 				function updateData(){
@@ -226,14 +209,6 @@
 							$('#nav-tabContent').html(data);
 							bindSendChat();
 							$('[autofocus]').focus();
-							//alert(sessionStorage.getItem("Text"));
-							// if(document.getElementById("content_"+id)!=null){
-							// 	if(sessionStorage.getItem("text")!=null)
-							// 	var txt=sessionStorage.getItem("text");
-							// 	document.getElementById("content_"+id).value = txt;
-							// 	sessionStorage.removeItem("text");
-							// }
-							
 						}
 					});
 				}
@@ -247,11 +222,23 @@
 					id=idRoom;
 					//alert(idRoom);
 					sessionStorage.clear();
-					document.getElementById('content_chat'+idRoom).disable = true;
+					// document.getElementById('content_chat'+idRoom).disable = true;
 					//alert(document.getElementById('content_chat'+idRoom).value);
 					var content = document.getElementById('content_'+idRoom).value;
 					document.getElementById('content_'+idRoom).value="";
-
+					$('#show_'+idRoom).append('<div class="message me">\
+                        <div class="text-main">\
+                            <div class="text-group me">\
+								<div class="text typing">\
+									<div class="wave">Sending \
+										<span class="dot"></span>\
+										<span class="dot"></span>\
+										<span class="dot"></span>\
+									</div>\
+								</div>\
+                            </div>\
+                        </div>\
+                    </div>');
 					$.ajax({
 						url:"Views/sendchat_ajax.php",
 						method:"POST",
@@ -273,17 +260,6 @@
 							var string ='button[id="'+id+'"]';
 							$(string).click();
 						}
-						// else{
-						// 	 var txt=sessionStorage.getItem("text");
-						// 	// var txt = document.getElementById('content_'+thisId).value;
-						// 	if(txt!=null){
-						// 		txt+=this.value + String.fromCharCode(e.keyCode);
-						// 	}
-						// 	else{
-						// 		txt=""+this.value + String.fromCharCode(e.keyCode);
-						// 	}
-						// 	sessionStorage.setItem("text",txt);
-						// }
 					})
 					scroll();
 					//end enter event

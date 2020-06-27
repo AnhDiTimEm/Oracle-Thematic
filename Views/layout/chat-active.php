@@ -81,7 +81,7 @@ else if($status=="online"){
         <!-- div show discussion -->
         <div class="content" name="content" id="scroll_<?php echo $key?>" >
             <div class="container">
-                <div class="col-md-12">
+                <div class="col-md-12" id="show_<?php echo $key?>">
                         <!-- load mess -->
                         <?php
                             $flagName="";
@@ -92,41 +92,41 @@ else if($status=="online"){
                                 if($mess->getPhone_user()!=$_SESSION['user']){
                                     echo'
                                     <div class="message">
-                                    <img class="avatar-md" src="'.$sender->getAvatar().'" data-toggle="tooltip" data-placement="top" title="'.$sender->getName().'" alt="avatar">
-                                    <div class="text-main">
-                                        <div class="text-group">
-                                            <div class="text">
-                                                <p>'.$mess->getContent().'</p>
+                                        <img class="avatar-md" src="'.$sender->getAvatar().'" data-toggle="tooltip" data-placement="top" title="'.$sender->getName().'" alt="avatar">
+                                        <div class="text-main">
+                                            <div class="text-group">
+                                                <div class="text">
+                                                    <p>'.$mess->getContent().'</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        ';
-                                        if($flagName!="me"){
+                                            ';
+                                            if($flagName!="me"){
+                                                echo'
+                                                <span>'.date("d-m-y H:i:sa",$d).'</span>';
+                                                $flagName="me";
+                                            }
                                             echo'
-                                            <span>'.date("d-m-y H:i:sa",$d).'</span>';
-                                            $flagName="me";
-                                        }
-                                        echo'
+                                        </div>
                                     </div>
-                                </div>
                                     ';
                                 }
                                 else{
                                     echo'
                                     <div class="message me">
-                                    <div class="text-main">
-                                        <div class="text-group me">
-                                            <div class="text me">
-                                                <p>'.$mess->getContent().'</p>
-                                            </div>
-                                        </div>';
-                                        if($flagName!="notme"){
+                                        <div class="text-main">
+                                            <div class="text-group me">
+                                                <div class="text me">
+                                                    <p>'.$mess->getContent().'</p>
+                                                </div>
+                                            </div>';
+                                            if($flagName!="notme"){
+                                                echo'
+                                                <span>'.date("d-m-y H:i:sa",$d).'</span>';
+                                                $flagName="notme";
+                                            }
                                             echo'
-                                            <span>'.date("d-m-y H:i:sa",$d).'</span>';
-                                            $flagName="notme";
-                                        }
-                                        echo'
+                                        </div>
                                     </div>
-                                </div>
                                     ';
                                 }
                             }
