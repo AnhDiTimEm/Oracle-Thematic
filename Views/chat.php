@@ -147,6 +147,7 @@
 		var id="";
 			//var id_active= document.getElementsByClassName("babble tab-pane fade active show")[0].id;
 			$(document).ready(function(){
+				$('[data-toggle="tooltip"]').tooltip();
 				updateStatusInChat();
 				LoadTabContent(id);
 				bindSendChat();
