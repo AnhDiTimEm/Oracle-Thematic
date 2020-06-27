@@ -178,7 +178,7 @@
 				// setInterval(function(){
 				// 	GetPageActive()
 				// },1000);
-				setInterval(function(){
+				setInterval(function loadtab(){
 					if(document.getElementsByClassName("babble tab-pane fade active show")[0]!=null){
 						if(document.getElementsByClassName("babble tab-pane fade active show")[0].id !=null){
 						var IDD = document.getElementsByClassName("babble tab-pane fade active show")[0].id;
@@ -189,6 +189,7 @@
 						else{
 							ID=IDD.substr(11,IDD.length);
 						}
+						if(document.getElementById('people').value=="" && document.getElementById('conversations').value=="")
 						if(document.getElementById("content_"+ID).value==""){
 							LoadTabContent(ID);
 						}
@@ -226,7 +227,15 @@
 							$('#nav-tabContent').html(data);
 							bindSendChat();
 							$('[autofocus]').focus();
+							//$('[autofocus]').enable();
 							//alert(sessionStorage.getItem("Text"));
+							// if(document.getElementById("content_"+id)!=null){
+							// 	if(sessionStorage.getItem("text")!=null)
+							// 	var txt=sessionStorage.getItem("text");
+							// 	document.getElementById("content_"+id).value = txt;
+							// 	sessionStorage.removeItem("text");
+							// }
+							
 						}
 					});
 				}
@@ -239,6 +248,8 @@
 					var idRoom = $(this).attr('id');
 					id=idRoom;
 					//alert(idRoom);
+					sessionStorage.clear();
+					document.getElementById('content_chat'+idRoom).disable = true;
 					//alert(document.getElementById('content_chat'+idRoom).value);
 					var content = document.getElementById('content_'+idRoom).value;
 					document.getElementById('content_'+idRoom).value="";
@@ -258,12 +269,23 @@
 					//enter event
 					$('textarea').keydown(function(e){
 						var code = e.keyCode? e.keyCode : e.which;
+						var thisId = $(this).attr('id');
 						if(code=='13'){
-							var thisId = $(this).attr('id');
 							var id =thisId.substr(8,thisId.length-1);
 							var string ='button[id="'+id+'"]';
 							$(string).click();
 						}
+						// else{
+						// 	 var txt=sessionStorage.getItem("text");
+						// 	// var txt = document.getElementById('content_'+thisId).value;
+						// 	if(txt!=null){
+						// 		txt+=this.value + String.fromCharCode(e.keyCode);
+						// 	}
+						// 	else{
+						// 		txt=""+this.value + String.fromCharCode(e.keyCode);
+						// 	}
+						// 	sessionStorage.setItem("text",txt);
+						// }
 					})
 					scroll();
 					//end enter event
