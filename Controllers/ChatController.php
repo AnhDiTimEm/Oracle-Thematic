@@ -140,22 +140,23 @@
             {
                 $friendDao->updateStatusFriend(new Friend($_SESSION['user'], $_GET['phone'], 'delete'));
                 $friendDao->updateStatusFriend(new Friend($_GET['phone'], $_SESSION['user'], 'delete'));
-                $l1 = $roomDao->GetAllRoomDetailByPhone($_SESSION['user']);
-                $l2 = $roomDao->GetAllRoomDetailByPhone($_GET['phone']);
-                $test = false;
-                foreach ($l1 as $r1)
-                {
-                    foreach ($l2 as $r2)
-                    {
-                        if ($r1->getId_room() == $r2->getId_room())
-                        {
-                            $roomDao->DeleteRoom($r1->getId_room());
-                            $test = true;
-                            break;
-                        }
-                    }
-                    if ($test = true) break;
-                }
+                $roomDao->DeleteRoom($_GET['chatpage']);
+                // $l1 = $roomDao->GetAllRoomDetailByPhone($_SESSION['user']);
+                // $l2 = $roomDao->GetAllRoomDetailByPhone($_GET['phone']);
+                // $test = false;
+                // foreach ($l1 as $r1)
+                // {
+                //     foreach ($l2 as $r2)
+                //     {
+                //         if ($r1->getId_room() == $r2->getId_room())
+                //         {
+                //             $roomDao->DeleteRoom($r1->getId_room());
+                //             $test = true;
+                //             break;
+                //         }
+                //     }
+                //     if ($test = true) break;
+                // }
                 echo "Unfriend Success!! <a href='javascript: history.go(-1)'>Back</a>";
             }
         }

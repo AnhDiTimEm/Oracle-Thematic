@@ -53,7 +53,6 @@ else if($status=="online"){
                                                 <input type="submit" value="Add">
                                         </form>
                                         <form action="?chatpage=1&group='.$key.'" method="POST">
-                                            <button type="submit" name="clear-history" class="dropdown-item" ><i class="material-icons">clear</i>Clear History</button>
                                             <button type="submit" name="leave-group" class="dropdown-item"><i class="material-icons">exit_to_app</i>Leave Group</button>
                                         </form>
                                         ';
@@ -61,8 +60,7 @@ else if($status=="online"){
                                     else if($typeRoom=="friend" && $friend_Phone != "1122334455" && $friend_Phone != "2233445566")
                                     {
                                         echo'
-                                        <form action="?chatpage=1&friend=action&phone='.$friend_Phone.'"&room='.$key.' method="post">
-                                            <button type="submit" name="clear-history" class="dropdown-item"><i class="material-icons">clear</i>Clear History</button>
+                                        <form action="?chatpage='.$key.'&friend=action&phone='.$friend_Phone.'"&room='.$key.' method="post">
                                             <button type="submit" name="delete" class="dropdown-item"><i class="material-icons">delete</i>Delete Contact</button>
                                         </form>
                                         ';
