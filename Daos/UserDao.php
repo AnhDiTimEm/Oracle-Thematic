@@ -56,7 +56,7 @@
 
 		public function GetAllUserr()
 		{
-			$result = $this->RunQuery("SELECT *	FROM Userr");
+			$result = $this->RunQuery("SELECT PHONE,PASSWORD,EMAIL,NAME,AVATAR,STATUS,TO_CHAR(TIMEOFF,'dd-mon-yyyy hh24:mi:ss') FROM Userr");
 			$userList = array();
 			while ($row = oci_fetch_assoc($result))
 			{
@@ -67,7 +67,7 @@
 					$row['NAME'],
 					$row['AVATAR'],
 					$row['STATUS'],
-					$row['TIMEOFF']
+					$row["TO_CHAR(TIMEOFF,'DD-MON-YYYYHH24:MI:SS')"]
 
 				);
 				array_push($userList, $userr);

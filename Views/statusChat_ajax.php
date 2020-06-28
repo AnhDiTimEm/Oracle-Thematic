@@ -53,7 +53,7 @@ if ($_SESSION['user'] != null)
                     echo'" class="filterDiscussions all unread single" id="list-chat-list" data-toggle="list" role="tab">';
                 };
                 echo'
-                    <img class="avatar-md" src="'.$friend->getAvatar().'" data-toggle="tooltip" data-placement="top" title="'.$friend->getName().'" alt="avatar">
+                    <img class="avatar-md" src="'.$friend->getAvatar().'" data-toggle="tooltip" data-placement="top" title="';if($friend_Phone!="1122334455" && $friend_Phone!="2233445566" && $friend->getTimeOff()!=null)echo'Last See at: '.$friend->getTimeOff();echo'" alt="avatar">
                     <div class="status">
                         <i class="material-icons ';
                 if($friend->getStatus()=="offline")

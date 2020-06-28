@@ -18,7 +18,7 @@ if ($_SESSION['user'] != null)
         if ($f->getPhone() == "1122334455" || $f->getPhone() == "2233445566")
         {
             $output.=' class="filterMembers all online contact" data-toggle="list">
-            <img class="avatar-md" src="'.$f->getAvatar().'" data-toggle="tooltip" data-placement="top" title="'.$f->getName().'" alt="avatar">
+            <img class="avatar-md" src="'.$f->getAvatar().'" data-toggle="tooltip" data-placement="top" title="Online" alt="avatar">
             <div class="status">
                 <i class="material-icons online">fiber_manual_record</i>
             </div>';
@@ -26,7 +26,7 @@ if ($_SESSION['user'] != null)
         else if ($f->getStatus()=="offline")
         {
             $output.=' class="filterMembers all offline contact" data-toggle="list">
-            <img class="avatar-md" src="'.$f->getAvatar().'" data-toggle="tooltip" data-placement="top" title="'.$f->getName().'" alt="avatar">
+            <img class="avatar-md" src="'.$f->getAvatar().'" data-toggle="tooltip" data-placement="top" title="'.'Last See at: '.$f->getTimeOff().'" alt="avatar">
             <div class="status">
                 <i class="material-icons offline">fiber_manual_record</i>
             </div>';
@@ -34,7 +34,7 @@ if ($_SESSION['user'] != null)
         else if ($f->getStatus()=="online")
         {
             $output.=' class="filterMembers all online contact" data-toggle="list">
-            <img class="avatar-md" src="'.$f->getAvatar().'" data-toggle="tooltip" data-placement="top" title="'.$f->getName().'" alt="avatar">
+            <img class="avatar-md" src="'.$f->getAvatar().'" data-toggle="tooltip" data-placement="top" title="Online" alt="avatar">
             <div class="status">
                 <i class="material-icons online">fiber_manual_record</i>
             </div>';
